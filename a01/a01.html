@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Assignment 1 </title>
+		<style>
+		table {
+			border: 1px solid black;
+			width: 680px;
+		}
+		td, th {
+			border: 1px solid black;
+			width: 25%;
+		}
+		.align-right {
+			text-align: right;
+		}
+		th, .align-center {
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td></td>
+				<th>Red</th>
+				<th>Green</th>
+				<th>Blue</th>
+			</tr>
+			<tr>
+				<th>Red</th>
+				<td class="align-right">red</td>
+				<td>brown</td>
+				<td>purple</td>
+			</tr>
+			<tr>
+				<th>Green</th>
+				<td>brown</td>
+				<td class="align-right">green</td>
+				<td>aqua</td>
+			</tr>
+			<tr>
+				<th>Blue</th>
+				<td>purple</td>
+				<td>aqua</td>
+				<td class="align-right">blue</td>
+			</tr>
+			<tr>
+				<th>Result:</th>
+				<td colspan="3" class="align-center">It's a rainbow spectacular!</td>
+			</tr>
+		</table>
+		<form>
+			<p>Please select the size you want:
+				<label> <input type="radio" name="size" value="big" /> BIG </label>
+				<label> <input type="radio" name="size" value="medium" /> MEDIUM </label>
+				<label> <input type="radio" name="size" value="small" /> SMALL </label>
+			</p>
+			<p>
+				<label> Enter your name here:
+					<input type="text" name="user_name" />
+				</label>
+			</p>
+			<p>Select the features you want:
+				<label> <input type="checkbox" name="feature[0]" /> Long sleeves </label>
+				<label> <input type="checkbox" name="feature[1]" /> Turtleneck </label>
+				<label> <input type="checkbox" name="feature[2]" /> Long torso </label>
+			</p>
+		</form>
+	</body>
+</html>
