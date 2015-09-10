@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title> Assignment 2 | b </title>
+    <style>
+    th {
+      background-color: black;
+      color: white;
+    }
+    td, th {
+      padding: 2px 4px;
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+    }
+    td, tr {
+      border: 1px solid black;
+    }
+    th + th {
+      border-left: 1px solid white;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    h6 {
+      font-style: italic;
+    }
+    tr.dorian {
+      background-color: #eee;
+    }
+    /* not using because gotta use classes */
+    /*tr:nth-child(odd) {
+      background-color: #eee;
+    }*/
+    </style>
+  </head>
+
+  <body>
+    <h1> Geographic Origin of Stanford Undergrads </h1>
+    <table>
+      <tr>
+        <th>Geographic Origin</th>
+        <th>Number of Students</th>
+      </tr>
+      <tr>
+        <td>California</td>
+        <td>2943</td>
+      </tr>
+      <tr class="dorian">
+        <td>Other US</td>
+        <td>3447</td>
+      </tr>
+      <tr>
+        <td>Asia</td>
+        <td>264</td>
+      </tr>
+      <tr class="dorian">
+        <td>The Americas</td>
+        <td>83</td>
+      </tr>
+      <tr>
+        <td>Europe</td>
+        <td>69</td>
+      </tr>
+      <tr class="dorian">
+        <td>Africa</td>
+        <td>44</td>
+      </tr>
+      <tr>
+        <td>Middle East and North Africa</td>
+        <td>22</td>
+      </tr>
+      <tr class="dorian">
+        <td>Pacific Basin</td>
+        <td>6</td>
+      </tr>
+    </table>
+    <h6> Source: Stanford Facts Website </h6>
+  </body>
+
+</html>
