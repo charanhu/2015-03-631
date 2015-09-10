@@ -1,0 +1,31 @@
+* {
+  font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+}
+h1 {
+  text-align: center;
+}
+p, li, dd {
+  font-size: 18px;
+}
+h1 + p::before {
+  content: url(face.png);
+  float: left;
+  margin: 15px;
+}
+li {
+  list-style-type: '\25b9\00a0';
+}
+a:hover {
+  font-size: 0;
+}
+a:hover::after {
+  content: attr(href);
+  font-size: 18px;
+  color: blue;
+}
+p > span {
+  color: rgb(0, 91, 48);
+}
+p > span:hover {
+  font-size: 19px;
+}
