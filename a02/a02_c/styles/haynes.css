@@ -1,0 +1,51 @@
+body {
+  color: #030303;
+  background-color: #ddFfcc;
+  font-family: verdana, geneva, arial, sans-serif;
+  font-size: 10px;
+}
+ul, ol {
+  text-align: left;
+}
+h1 {
+  font-family: Coronetscript, cursive;
+  font-size: 16pt;
+  text-align: center;
+}
+h2 {
+  font-family: Coronetscript, cursive;
+  font-size: 12pt;
+  text-align: center;
+}
+h3, h4 {
+  text-align: center;
+}
+table {
+  text-align: center;
+}
+h6 {
+  font-family: Coronetscript, cursive;
+  font-size: 8pt;
+  text-align: center;
+}
+a:link {
+  /*color: DarkOliveGreen; */
+  color: #993300;
+  font-size: small;
+}
+a:visited {
+  color: #993300;
+  font-size: small;
+}
+a:active, a:hover {
+  color: #cc6600;
+}
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+td {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+}
