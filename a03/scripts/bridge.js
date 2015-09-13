@@ -38,6 +38,18 @@ var BridgeHandler = (function() {
         throw error;
       }
       delete this.hand[suit][index];
+      this.hand[suit] = this.hand[suit].filter(function(value) {
+        return value;
+      });
+    }
+
+    Player.prototype.trashHand = function(deck) {
+      Object.keys(this.hand).forEach(function (key) {
+        this.hand[key].forEach(function (number) {
+          deck.returnCard(key, number);
+          this.playCard(key, number);
+        }, this);
+      }, this);
     }
 
     Player.prototype.display = function() {
@@ -92,6 +104,12 @@ var BridgeHandler = (function() {
       }
     }
 
+    Deck.prototype.returnCard = function(suit, number) {
+      this.cards.push(
+        (SUITS.indexOf(suit) * NUM_PER_SUIT) + number - 1
+      );
+    }
+
     function Card(number) {
       this.suit = SUITS[Math.floor(number / NUM_PER_SUIT)];
       this.number = number % NUM_PER_SUIT;
@@ -102,14 +120,26 @@ var BridgeHandler = (function() {
     Card.prototype.compareTo = function(otherCard) {
       return this.number - otherCard.number;
     }
+
+    Card.prototype.play = function(player, deck) {
+      player.playCard(this.suit, this.number);
+      deck.returnCard(this.suit, this.number);
+    }
+
   }
   BridgeHandler.prototype.deal = function() {
+    this.beginAnew();
     this.deck.deal(this.players);
   }
   BridgeHandler.prototype.display = function() {
     this.players.forEach(function(player) {
       console.log(JSON.stringify(player.display()));
     })
+  }
+  BridgeHandler.prototype.beginAnew = function() {
+    this.players.forEach((function(player) {
+      player.trashHand(this.deck);
+    }).bind(this));
   }
   return BridgeHandler;
 })();
