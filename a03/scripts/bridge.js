@@ -32,7 +32,15 @@ var BridgeHandler = (function() {
       this.hand[theCard.suit].push(theCard.number);
     }
 
-    Player.prototype.display = function(idOfDiv) {
+    Player.prototype.playCard = function(suit, number) {
+      var index = this.hand[suit].indexOf(number);
+      if (index < 0) {
+        throw error;
+      }
+      delete this.hand[suit][index];
+    }
+
+    Player.prototype.display = function() {
       var displayData = {
         title: this.pName
       };
@@ -100,7 +108,7 @@ var BridgeHandler = (function() {
   }
   BridgeHandler.prototype.display = function() {
     this.players.forEach(function(player) {
-      alert(JSON.stringify(player.display(player.pName)));
+      console.log(JSON.stringify(player.display()));
     })
   }
   return BridgeHandler;
