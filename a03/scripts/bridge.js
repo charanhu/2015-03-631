@@ -141,5 +141,22 @@ var BridgeHandler = (function() {
       player.trashHand(this.deck);
     }).bind(this));
   }
+  BridgeHandler.prototype.getPlayer = function(player) {
+    var i;
+    if (typeof player != "number") {
+      for (var i = 0; i < this.players.length; i++) {
+        if (this.players[i].pName == player) {
+          break;
+        }
+      }
+      if (i == this.players.length) {
+        throw error;
+      }
+    } else {
+      i = player;
+    }
+    return this.players[i];
+  }
+
   return BridgeHandler;
 })();
