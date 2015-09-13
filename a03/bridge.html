@@ -12,18 +12,19 @@
 
 <body>
   <div id="game-container">
-    <div id="north"></div>
-    <div id="east"></div>
-    <div id="south"></div>
-    <div id="west"></div>
+    <div id="North"></div>
+    <div id="East"></div>
+    <div id="South"></div>
+    <div id="West"></div>
   </div>
-  <button></button>
+  <button onclick="bh.deal();bh.display()">deal</button>
   <script>
   var item = range(8);
   for (i = 0; i < item.length; i++) {
     //console.log(item[i]);
   }
-
+  bh.deal();
+  bh.display();
   </script>
 </body>
 
