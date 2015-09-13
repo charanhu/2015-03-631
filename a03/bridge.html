@@ -4,20 +4,28 @@
 <head>
   <title>Bridge</title>
   <script type="text/javascript" src="scripts/bridge.js"></script>
+  <script type="text/javascript" src="scripts/bridge_display.js"></script>
   <script type="text/javascript" src="scripts/Util.js"></script>
   <script type="text/javascript">
     var bh = new BridgeHandler();
   </script>
+  <style>
+  .holder {
+
+  }
+  </style>
 </head>
 
 <body>
-  <div id="game-container">
-    <div id="North"></div>
-    <div id="East"></div>
-    <div id="South"></div>
-    <div id="West"></div>
+  <div id="game-container" style="width:80%;">
+    <div id="top" class="holder"></div>
+    <div id="right" class="holder"></div>
+    <div id="bottom" class="holder"></div>
+    <div id="left" class="holder"></div>
   </div>
   <button onclick="bh.deal();bh.display()">deal</button>
+  <button onclick="defaultDisplay(bh);">disp</button>
+
   <script>
   var item = range(8);
   for (i = 0; i < item.length; i++) {

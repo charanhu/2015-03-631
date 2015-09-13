@@ -54,7 +54,7 @@ var BridgeHandler = (function() {
 
     Player.prototype.display = function() {
       var displayData = {
-        title: this.pName
+        title: this.pName,
       };
       Object.keys(this.hand).forEach((function(key) {
         var sorted =
@@ -155,7 +155,7 @@ var BridgeHandler = (function() {
     } else {
       i = player;
     }
-    return this.players[i];
+    return this.players[i].display();
   }
 
   return BridgeHandler;
