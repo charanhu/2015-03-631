@@ -1,6 +1,6 @@
 var BridgeHandler = (function() {
   const DEFAULT_NAMES = [
-    "North", "South", "East", "West"
+    "North", "East", "South", "West"
   ];
   const SUITS = [
     "hearts", "spades", "clubs", "diamonds"

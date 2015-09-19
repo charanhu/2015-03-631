@@ -1,3 +1,5 @@
+offset = 0;
+
 function displayHand(holderDiv, playerJSON) {
   const SUITS = [
     "hearts",
@@ -24,12 +26,13 @@ function displayHand(holderDiv, playerJSON) {
 function defaultDisplay(bridgeHandler) {
   const DEFAULT_DIVS = [
     "top",
-    "bottom",
     "right",
+    "bottom",
     "left"
   ];
 
   for (var i = 0; i < DEFAULT_DIVS.length; i++) {
-    displayHand(document.getElementById(DEFAULT_DIVS[i]), bridgeHandler.getPlayer(i));
+    displayHand(document.getElementById(DEFAULT_DIVS[(i + offset) % DEFAULT_DIVS.length]), bridgeHandler.getPlayer(i));
   }
+  offset++;
 }
