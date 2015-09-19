@@ -24,8 +24,8 @@ function displayHand(holderDiv, playerJSON) {
 function defaultDisplay(bridgeHandler) {
   const DEFAULT_DIVS = [
     "top",
-    "right",
     "bottom",
+    "right",
     "left"
   ];
 
