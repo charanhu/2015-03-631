@@ -23,7 +23,7 @@ function displayHand(holderDiv, playerJSON) {
   holderDiv.innerHTML = toBeInner;
 }
 
-function defaultDisplay(bridgeHandler) {
+function defaultDisplay(bridgeHandler, rotate) {
   const DEFAULT_DIVS = [
     "top",
     "right",
@@ -31,8 +31,12 @@ function defaultDisplay(bridgeHandler) {
     "left"
   ];
 
-  for (var i = 0; i < DEFAULT_DIVS.length; i++) {
-    displayHand(document.getElementById(DEFAULT_DIVS[(i + offset) % DEFAULT_DIVS.length]), bridgeHandler.getPlayer(i));
+  if (rotate) {
+    offset++;
   }
-  offset++;
+  
+  for (var i = 0; i < DEFAULT_DIVS.length; i++) {
+    displayHand(document.getElementById(DEFAULT_DIVS[(i + offset) % DEFAULT_DIVS.length]),
+      bridgeHandler.getPlayer(i));
+  }
 }
