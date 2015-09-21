@@ -4,8 +4,8 @@ function displayHand(holderDiv, playerJSON) {
   const SUITS = [
     "hearts",
     "spades",
-    "clubs",
-    "diamonds"
+    "diamonds",
+    "clubs"
   ];
 
   const UNICODE_CARD = {
