@@ -7,6 +7,16 @@ ul li {
 nav, h1 {
   padding: 0 10%;
 }
+footer {
+  background-color: #28324B;
+  border: 1px solid black;
+  margin: 1em 10% 2em 10%;
+}
+#copyright {
+  color: white;
+  margin-top: -1em;
+  font-family: sans-serif;
+}
 h1, h3 {
   background: url(../images/ed_hack/head_tile.jpg);
   color: white;
