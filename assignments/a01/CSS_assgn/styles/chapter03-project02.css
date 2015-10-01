@@ -1,0 +1,39 @@
+header {
+}
+ul li {
+  display: inline-block;
+}
+nav, h1 {
+  padding: 0 10%;
+}
+h1 {
+  background: url(../images/ed_hack/tiled.jpg);
+}
+#mainMenu {
+  background-color: #28324B;
+  text-align: right;
+  padding: 0.25em 10%;
+}
+#mainMenu a {
+  margin-right: 0.5em;
+}
+#secondaryMenu {
+  background-color: #DCDCE6;
+  padding-top: 0.5em;
+  padding-bottom: 0.25em;
+}
+#secondaryMenu a {
+  margin-right: 1em;
+}
+a {
+  color: #6190FF;
+  font-family: sans-serif;
+}
+a[href^="mailto"] {
+  background: url( ../images/email.png) no-repeat 0 3px;
+  padding-left: 1em;
+}
+a[href^="tel"] {
+  background: url( ../images/call.png) no-repeat 0 3px;
+  padding-left: 1em;
+}
