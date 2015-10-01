@@ -34,6 +34,21 @@ div.actions {
   background-color: #28324B;
   padding: 0.25em;
 }
+div.actions li {
+  background-color: #EEEEEE;
+
+  padding: 2px;
+  padding-left: 0.5em;
+  padding-right: 1em;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+
+  border-radius: 5px;
+
+  margin: 0.25em;
+}
 article > div {
   background: white;
   padding: 1em;
@@ -44,6 +59,9 @@ article > div {
 div > img {
   border: 1px solid black;
   padding: 0.5em;
+}
+figure > img {
+  width: 100%;
 }
 #mainMenu {
   background-color: #28324B;
@@ -71,6 +89,8 @@ a[href^="mailto"] {
 }
 a[href^="mailto"]::before {
   display: inline-block;
+  position: relative;
+  top: 3px;
   width: 16px;
   height: 16px;
   margin-right: 5px;
@@ -84,6 +104,8 @@ a[href^="tel"] {
 }
 a[href^="tel"]::before {
   display: inline-block;
+  position: relative;
+  top: 3px;
   width: 16px;
   height: 16px;
   margin-right: 5px;
@@ -93,6 +115,8 @@ a[href^="tel"]::before {
 }
 a.actionEdit::before {
   display: inline-block;
+  position: relative;
+  top: 3px;
   width: 16px;
   height: 16px;
   margin-right: 5px;
@@ -102,6 +126,8 @@ a.actionEdit::before {
 }
 a.actionFlag::before {
   display: inline-block;
+  position: relative;
+  top: 3px;
   width: 16px;
   height: 16px;
   margin-right: 5px;
