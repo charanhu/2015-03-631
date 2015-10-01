@@ -46,7 +46,6 @@ div.actions {
 }
 div.actions li {
   background-color: #EEEEEE;
-
   padding: 2px;
   padding-left: 0.5em;
   padding-right: 1em;
@@ -54,9 +53,7 @@ div.actions li {
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
-
   border-radius: 5px;
-
   margin: 0.25em;
 }
 article > div {
@@ -94,7 +91,7 @@ a {
   font-family: sans-serif;
 }
 a[href^="mailto"] {
-  background: url( ../images/email.png) no-repeat 0 3px;
+  background: url(../images/email.png) no-repeat 0 3px;
   padding-left: 1em;
 }
 a[href^="mailto"]::before {
@@ -109,7 +106,7 @@ a[href^="mailto"]::before {
   background-size: 100%;
 }
 a[href^="tel"] {
-  background: url( ../images/call.png) no-repeat 0 3px;
+  background: url(../images/call.png) no-repeat 0 3px;
   padding-left: 1em;
 }
 a[href^="tel"]::before {

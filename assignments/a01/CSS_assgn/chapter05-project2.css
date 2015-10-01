@@ -1,193 +1,174 @@
-
-
 header, footer, nav, div, p, body {
-   font-family: Verdana, Tahoma, "Trebuchet MS", "DejuVu Sans", "Bitstream Vera Sans", sans-serif;
-   font-size: 1em;
+  font-family: Verdana, Tahoma, "Trebuchet MS", "DejuVu Sans", "Bitstream Vera Sans", sans-serif;
+  font-size: 1em;
 }
-
 header {
-   background-color: rgb(63, 159, 217);
-   height: 3em;
+  background-color: rgb(63, 159, 217);
+  height: 3em;
 }
 header .brand {
-   font-family: Vendana, Arial, sans-serif;
-float: left;
-   padding: 8px 20px 12px;
-   margin-left: 3em;
-   font-size: 1.5em;
-   font-weight: bold;
-   line-height: 1;
-   color: #f5f5f5;
-   text-decoration: none;
+  font-family: Vendana, Arial, sans-serif;
+  float: left;
+  padding: 8px 20px 12px;
+  margin-left: 3em;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 1;
+  color: #f5f5f5;
+  text-decoration: none;
 }
-
 header nav {
-float: left;
-   margin: 0.70em 1em 0 0;
-
+  float: left;
+  margin: 0.70em 1em 0 0;
 }
-
 header ul {
-float: right;
-   margin:0;
-   padding:0;
+  float: right;
+  margin: 0;
+  padding: 0;
 }
 header li {
   list-style: none;
   display: inline-block;
-   padding: 0 1em;
+  padding: 0 1em;
 }
 header li a:link {
-   color: #f5f5f5;
-   text-decoration: none;
+  color: #f5f5f5;
+  text-decoration: none;
 }
 
 /* Main structure */
 
 div#container {
   position: relative;
-
 }
 #main {
   position: absolute;
-   margin: 0 20em 0 16em;
+  margin: 0 20em 0 16em;
 }
-
 aside {
   position: absolute;
   width: 19em;
   right: 0;
 }
 #rail {
-position: absolute;
-width: 15em;
-left:0;
+  position: absolute;
+  width: 15em;
+  left: 0;
 }
 
 /* other common classes */
 
 .well, .alert {
-   margin-bottom: 2em;
-   padding: 1em;
+  margin-bottom: 2em;
+  padding: 1em;
 }
 .well {
-   background-color: #f5f5f5;
-   border: 1px solid #eee;
-   border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: #f5f5f5;
+  border: 1px solid #eee;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 .well h3 {
-   background-color: #b6d1f2;
-   padding: 1em;
+  background-color: #b6d1f2;
+  padding: 1em;
 }
-
 .alert {
-   background-color: #edebe1;
-   border-color: #e0d9cb;
-   color: #817b58;
+  background-color: #edebe1;
+  border-color: #e0d9cb;
+  color: #817b58;
 }
-
 .breadcrumb {
-   padding: 0.5em 1em;
-
-   list-style: none;
-   background-color: #fbfbfb;
+  padding: 0.5em 1em;
+  list-style: none;
+  background-color: #fbfbfb;
 }
 
 /* main styles */
+
 #main {
-   padding: 0.5em 0.75em;
+  padding: 0.5em 0.75em;
 }
 #main h2 {
-   padding-top: 1em;
-   font-size: 1.5em;
+  padding-top: 1em;
+  font-size: 1.5em;
 }
 #main h4 {
-   padding-top: 1.5em;
-   font-size: 1.2em;
+  padding-top: 1.5em;
+  font-size: 1.2em;
 }
 #main th {
-   text-align: left;
+  text-align: left;
 }
-#main table {
-
-}
-
-
+#main table {}
 #main #yourCompany {
-float:left;
-   margin-bottom: 1.5em;
-   font-size: 0.8em;
+  float: left;
+  margin-bottom: 1.5em;
+  font-size: 0.8em;
 }
 #main #client {
-float: right;
-   font-size: 0.8em;
+  float: right;
+  font-size: 0.8em;
 }
 #main hr {
-   clear: both;
+  clear: both;
 }
 .bigButton {
   display: block;
-   margin-top: 1em;
-   background-color: rgb(63, 159, 217);
-   text-align: center;
-   color: #f5f5f5;
-   text-decoration: none;
+  margin-top: 1em;
+  background-color: rgb(63, 159, 217);
+  text-align: center;
+  color: #f5f5f5;
+  text-decoration: none;
 }
-
 
 /* left rail styles */
 
-#rail nav {
-
+#rail nav {}
+#rail nav ul {
+  list-style-type: none;
+  font-size: 1.1em;
 }
-#rail nav  ul {
-   list-style-type:none;
-   font-size: 1.1em;
-}
-#rail nav  ul li {
-   margin-bottom: 0.3em;
+#rail nav ul li {
+  margin-bottom: 0.3em;
 }
 
 /* right aside styles */
 
 ul#changeList, ul#sellersList, ul#messageList {
-   background-color: white;
-   list-style-type:none;
+  background-color: white;
+  list-style-type: none;
 }
 ul#changeList li {
-   overflow: auto;
-   padding-top: 1em;
+  overflow: auto;
+  padding-top: 1em;
 }
-ul#changeList li  p{
-   padding-top: 0.5em;
+ul#changeList li p {
+  padding-top: 0.5em;
 }
 ul#changeList li span {
-float: left;
-   min-width: 1.75em;
-   text-align: right;
-   font-size: 2em;
-   padding: 0 1em 0 0;
-   color: #616466;
-   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  float: left;
+  min-width: 1.75em;
+  text-align: right;
+  font-size: 2em;
+  padding: 0 1em 0 0;
+  color: #616466;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
 }
-
 ul#sellersList li, ul#messageList li {
-   overflow: auto;
-   padding: 1em 0.25em 0 0;
-   font-size: 0.75em;
+  overflow: auto;
+  padding: 1em 0.25em 0 0;
+  font-size: 0.75em;
 }
-ul#sellersList img{
-float: left;
+ul#sellersList img {
+  float: left;
 }
 ul#sellersList p {
-   padding-top: 1.5em;
+  padding-top: 1.5em;
 }
-
-ul#messageList  img {
-float:left;
-   padding-right: 0.5em;
+ul#messageList img {
+  float: left;
+  padding-right: 0.5em;
 }
-#messageList li  p {
-   font-size: 0.9em;
-   padding: 0.3em 0.25em;
+#messageList li p {
+  font-size: 0.9em;
+  padding: 0.3em 0.25em;
 }
