@@ -1,4 +1,5 @@
-header {
+body {
+  background: url(../images/ed_hack/main_tile.jpg);
 }
 ul li {
   display: inline-block;
@@ -7,7 +8,21 @@ nav, h1 {
   padding: 0 10%;
 }
 h1 {
-  background: url(../images/ed_hack/tiled.jpg);
+  background: url(../images/ed_hack/head_tile.jpg);
+}
+article {
+  margin: 1em 10%;
+}
+article > div {
+  background: white;
+  padding: 1em;
+  margin: 1em 0;
+  font-family: Tahcoma, monospace;
+  text-align: center;
+}
+div > img {
+  border: 1px solid black;
+  padding: 0.5em;
 }
 #mainMenu {
   background-color: #28324B;
