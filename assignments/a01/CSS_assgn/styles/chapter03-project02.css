@@ -7,11 +7,32 @@ ul li {
 nav, h1 {
   padding: 0 10%;
 }
-h1 {
+h1, h3 {
   background: url(../images/ed_hack/head_tile.jpg);
+  color: white;
+  font-family: sans-serif;
+}
+h3 {
+  padding: 1em;
 }
 article {
   margin: 1em 10%;
+}
+section {
+  border: 1px solid black;
+  margin: 1em 0;
+  background-color: white;
+}
+em {
+  color: darkgray;
+}
+p {
+  margin: 1em;
+  font-family: fantasy;
+}
+div.actions {
+  background-color: #28324B;
+  padding: 0.25em;
 }
 article > div {
   background: white;
@@ -48,7 +69,43 @@ a[href^="mailto"] {
   background: url( ../images/email.png) no-repeat 0 3px;
   padding-left: 1em;
 }
+a[href^="mailto"]::before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  content: "";
+  background: url(../images/ed_hack/mail_icon.jpg) no-repeat 0 0;
+  background-size: 100%;
+}
 a[href^="tel"] {
   background: url( ../images/call.png) no-repeat 0 3px;
   padding-left: 1em;
+}
+a[href^="tel"]::before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  content: "";
+  background: url(../images/ed_hack/bell_icon.jpg) no-repeat 0 0;
+  background-size: 100%;
+}
+a.actionEdit::before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  content: "";
+  background: url(../images/ed_hack/edit_icon.jpg) no-repeat 0 0;
+  background-size: 100%;
+}
+a.actionFlag::before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  content: "";
+  background: url(../images/ed_hack/flag_icon.jpg) no-repeat 0 0;
+  background-size: 100%;
 }
