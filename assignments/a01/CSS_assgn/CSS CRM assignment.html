@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CSS Assignment 1:</title>
+<link href="../../public_html/MattCode2.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>CSS Assignment: Customer Relations Mgt.</h1>
+<p><em>This assignment is adapted from Connolly and Hoar's &quot;Fundamentals of Web Development&quot;, Pearson, 2014.</em></p>
+<p>To complete this assignment, first download and decompress <a title="CSS_assgn.zip" href="https://canvas.emich.edu/courses/19309/files/2163309/download?wrap=1">CSS_assgn.zip.</a><a href="https://canvas.emich.edu/courses/19309/files/2163309/download?wrap=1" target="_blank" title="View in a new window"><img src="https://canvas.emich.edu/images/popout.png" alt="View in a new window" /></a></p>
+<h2>Part 1</h2>
+<p>Using HTML and some basic CSS, create a web page for an imaginary book publisher to help them maintain information about their customers.</p>
+<ol>
+  <li>Use <tt>chapter03-project02.html</tt> as a starting point.</li>
+  <li>Use an external style sheet, <tt>reset.css</tt>, to reset the tags (html, body, header, footer, hgroup, nav, article, section, figure, figcaption, h1, h2, h3, ul, li, body, div, p, img) so that their <em>margin</em>, <em>padding</em>, and <em>border</em> to 0, and the <em>font-size</em> to 100%, and the <em>vertical-align</em> to <em>baseline</em>.  Link that style sheet to your page.</li>
+  <li>Create an external style sheet named <tt>chapter03-project02.css</tt> and link to it as well.</li>
+  <li>Add styles to <tt>chapter03-project02.css</tt> so that the html file yields a page that looks similar to that shown in the Figure below. Do not modify the markup within the &lt;body&gt; element. This means defining styles for the header, footer, section, and other tags.</li>
+</ol>
+<p>Hint: Notice the backgrounds for each of the section headers. Use attribute selectors for the mail and telephone link icons as shown below: </p>
+<pre>a[href^=&quot;mailto&quot;] { 
+   background: url( images/email.png) no-repeat 0 3px; 
+   padding-left: 1em; } 
+a[href^=&quot;tel&quot;] { background: url( images/call.png) no-repeat 0 3px; 
+   padding-left: 1em; } </pre>
+<p>(By the way, the attribute selector <tt>href^=&quot;tel&quot;</tt> matches any href attribute in an <tt>a</tt> element that starts with &quot;tel&quot;.)</p>
+<p>Your output should be similar to that shown in Figure below.</p>
+<h2>Part 2</h2>
+<p>In this exercise you will use absolute positioning and floats to modify <tt>chapter05-project02.css</tt> so that <tt>chapter05-project02.html</tt> will yield a page that looks similar to the figure below. </p>
+<p>Instructions </p>
+<ol>
+  <li>Examine chapter05-project01.html in the browser. The HTML, itself, does not need to be modified for this project. (Instead, you'll be modifying the CSS file it links to.)</li>
+  <li>Create the three-column layout using absolute positioning and margin settings as we discussed in class. </li>
+  <li>Within the main column, the company and client addresses should be placed using floats rather than positioning. </li>
+  <li>Within the boxes for recent messages, weekly changes, and top sellers, you will need to use floats, block display, and padding values. </li>
+  </ol>
+Testing 1. Be sure to test by increasing/decreasing the browser zoom level. If you have used <tt>em</tt> units for font sizes and most margin and padding values, it should scale with the different zoom levels.
+</li>
+</ol>
+<p>&nbsp;</p>
+</body>
+</html>
