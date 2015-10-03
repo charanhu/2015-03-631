@@ -74,6 +74,7 @@ figure > img {
   background-color: #28324B;
   text-align: right;
   padding: 0.25em 10%;
+  padding-right: calc(10% - 2em);
 }
 #mainMenu a {
   margin-right: 0.5em;
