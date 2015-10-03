@@ -94,7 +94,7 @@ a[href^="mailto"] {
   background: url(../images/email.png) no-repeat 0 3px;
   padding-left: 1em;
 }
-a[href^="mailto"]::before {
+/*a[href^="mailto"]::before {
   display: inline-block;
   position: relative;
   top: 3px;
@@ -104,12 +104,12 @@ a[href^="mailto"]::before {
   content: "";
   background: url(../images/ed_hack/mail_icon.jpg) no-repeat 0 0;
   background-size: 100%;
-}
+}*/
 a[href^="tel"] {
   background: url(../images/call.png) no-repeat 0 3px;
   padding-left: 1em;
 }
-a[href^="tel"]::before {
+/*a[href^="tel"]::before {
   display: inline-block;
   position: relative;
   top: 3px;
@@ -119,7 +119,7 @@ a[href^="tel"]::before {
   content: "";
   background: url(../images/ed_hack/bell_icon.jpg) no-repeat 0 0;
   background-size: 100%;
-}
+}*/
 a.actionEdit::before {
   display: inline-block;
   position: relative;
