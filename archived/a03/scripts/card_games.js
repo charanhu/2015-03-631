@@ -71,6 +71,14 @@ var
       shuffle(this.cards);
     };
 
+    Deck.prototype.draw = function() {
+      return this.cards.pop();
+    }
+
+    Deck.prototype.return = function(card) {
+      this.cards.push(card);
+    }
+
     return Deck;
   }()),
 
