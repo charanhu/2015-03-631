@@ -1,19 +1,6 @@
 offset = 0;
 
 function displayHand(holderDiv, playerJSON) {
-  const SUITS = [
-    "hearts",
-    "spades",
-    "diamonds",
-    "clubs"
-  ];
-
-  const UNICODE_CARD = {
-    "hearts": "&#x2665;",
-    "spades": "&#x2660;",
-    "clubs": "&#x2663;",
-    "diamonds": "&#x2666;"
-  };
 
   var toBeInner = `<h2>${playerJSON['title']}</h2>`;
   toBeInner += SUITS.map(function(suit) {
@@ -34,7 +21,7 @@ function defaultDisplay(bridgeHandler, rotate) {
   if (rotate) {
     offset++;
   }
-  
+
   for (var i = 0; i < DEFAULT_DIVS.length; i++) {
     displayHand(document.getElementById(DEFAULT_DIVS[(i + offset) % DEFAULT_DIVS.length]),
       bridgeHandler.getPlayer(i));

@@ -1,17 +1,4 @@
 var BridgeHandler = (function() {
-  const DEFAULT_NAMES = [
-    "North", "East", "South", "West"
-  ];
-  const SUITS = [
-    "hearts", "spades", "clubs", "diamonds"
-  ];
-  const NUM_PER_SUIT = 13;
-  const UNICODE_CARD = {
-    "hearts": "&#x2665;",
-    "spades": "&#x2660;",
-    "clubs": "&#x2663;",
-    "diamonds": "&#x2666;"
-  };
 
   function BridgeHandler() {
     this.deck = new Deck();
