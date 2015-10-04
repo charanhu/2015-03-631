@@ -38,26 +38,42 @@ var
         }
 
         return array;
+      },
+      createDeck = function(cardsArray, startValue) {
+        var i, j;
+
+        for (i = 0; i < SUITS.length; i++) {
+          for (j = startValue; j < VALUES.length; j++) {
+            cardsArray.push(new Card(SUITS[i], VALUES[j]));
+          }
+        }
       };
 
     function Deck(configObject) {
       this.cards = [];
+      var startValue, numtimes = 1;
 
       switch (configObject.strippedDeck) {
-        case 'euchre':
-
-          break;
         case 'pinochle':
-
+          numtimes = 2;
+        case 'euchre':
+          startValue = VALUES.indexOf('9');
           break;
         case 'standard':
         default:
-
+          startValue = 0;
       }
+
+      while (numtimes--) {
+        createDeck(this.cards, startValue);
+      }
+
+      shuffle(this.cards);
     };
 
     return Deck;
   }()),
+
   Card = (function() {
     function Card(suit, displayValue, intValue) {
       this.suit = suit;
@@ -71,9 +87,11 @@ var
 
     return Card;
   }()),
+
   Player = (function() {
 
   }()),
+
   Hand = (function() {
 
   }());
