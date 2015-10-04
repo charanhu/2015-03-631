@@ -12,3 +12,42 @@ const DEFAULT_NAMES = [
     "clubs": "&#x2663;",
     "diamonds": "&#x2666;"
   };
+var
+  Deck = (function() {
+    function Deck(configObject) {
+      this.cards = [];
+
+      switch (configObject.strippedDeck) {
+        case 'euchre':
+
+          break;
+        case 'pinochle':
+
+          break;
+        case 'standard':
+        default:
+
+      }
+    };
+
+    return Deck;
+  }()),
+  Card = (function() {
+    function Card(suit, displayValue, intValue) {
+      this.suit = suit;
+      this.displayValue = displayValue;
+      this.intValue = intValue || VALUES.indexOf(displayValue) + 1;
+    }
+
+    Card.prototype.compareTo = function(otherCard) {
+      return otherCard.intValue - this.intValue;
+    };
+    
+    return Card;
+  }()),
+  Player = (function() {
+
+  }()),
+  Hand = (function() {
+
+  }());
