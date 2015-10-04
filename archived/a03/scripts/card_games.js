@@ -49,7 +49,7 @@ var
         }
       };
 
-    function Deck(configObject) {
+    function Deck(configObject = {}) {
       this.cards = [];
       var startValue, numtimes = 1;
 
