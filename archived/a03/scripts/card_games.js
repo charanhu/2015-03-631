@@ -97,9 +97,26 @@ var
   }()),
 
   Player = (function() {
+    function Player(userName) {
+      this.userName = userName;
+      this.hand = new Hand();
+    }
 
+    Player.prototype.playHighest = function(suit) {
+
+    }
+
+    return Player;
   }()),
 
   Hand = (function() {
+    function Hand() {
+      this.cards = [];
+    }
 
+    Hand.prototype.add = function(card) {
+      this.cards.push(card);
+    }
+
+    return Hand;
   }());
