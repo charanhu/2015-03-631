@@ -14,6 +14,32 @@ const DEFAULT_NAMES = [
   };
 var
   Deck = (function() {
+    var
+      range = function(stop, start = 0, step = 1) {
+        var i = start,
+          theRange = [];
+        for (; i < stop; i += step) {
+          theRange[i] = i;
+        }
+        return theRange;
+      },
+      shuffle = function(array) {
+        var counter = array.length,
+          temp, index;
+
+        while (counter > 0) {
+          index = Math.floor(Math.random() * counter);
+
+          counter--;
+
+          temp = array[counter];
+          array[counter] = array[index];
+          array[index] = temp;
+        }
+
+        return array;
+      };
+
     function Deck(configObject) {
       this.cards = [];
 
@@ -42,7 +68,7 @@ var
     Card.prototype.compareTo = function(otherCard) {
       return otherCard.intValue - this.intValue;
     };
-    
+
     return Card;
   }()),
   Player = (function() {
