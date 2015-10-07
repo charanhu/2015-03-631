@@ -112,7 +112,8 @@ aside {
   clear: both;
 }
 .bigButton {
-  display: block;
+  display: inline-block;
+  padding: 0 1em;
   margin-top: 1em;
   background-color: rgb(63, 159, 217);
   text-align: center;
