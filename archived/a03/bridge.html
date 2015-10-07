@@ -1,58 +1,67 @@
 <!doctype html>
 <html>
 
-<head>
-  <title>Bridge</title>
-  <script type="text/javascript" src="scripts/card_games.js"></script>
-  <script type="text/javascript" src="scripts/bridge.js"></script>
-  <script type="text/javascript" src="scripts/bridge_display.js"></script>
-  <script type="text/javascript" src="scripts/Util.js"></script>
-  <script type="text/javascript">
-    var bh = new BridgeHandler();
-  </script>
-  <style>
-  #game-container {
-    margin: auto;
-    width: 50%;
-  }
-  #top, #bottom {
-    margin: auto;
-    clear: both;
-  }
-  #right {
-    float: right;
-  }
-  #left {
-    float: left;
-  }
-  .holder {
-    width: 40%;
-  }
-  p:nth-child(even) {
-    color: red;
-  }
-  </style>
-</head>
+  <head>
+    <title>Bridge</title>
+    <!-- <script type="text/javascript" src="scripts/card_games.js"></script> -->
+    <script type="text/javascript" src="scripts/bridge.js"></script>
+    <script type="text/javascript" src="scripts/bridge_display.js"></script>
+    <script type="text/javascript" src="scripts/Util.js"></script>
+    <script type="text/javascript">
+      var bh = new BridgeHandler();
 
-<body>
-  <div id="game-container">
-    <div id="top" class="holder"></div>
-    <div id="right" class="holder"></div>
-    <div id="left" class="holder"></div>
-    <div id="bottom" class="holder"></div>
-  </div>
-  <button onclick="bh.deal();bh.display();defaultDisplay(bh, false);">deal</button>
-  <button onclick="defaultDisplay(bh, true);">rotate</button>
+    </script>
+    <style>
+      #game-container {
+        margin: auto;
+        width: 50%;
+      }
+      
+      #top,
+      #bottom {
+        margin: auto;
+        clear: both;
+      }
+      
+      #right {
+        float: right;
+      }
+      
+      #left {
+        float: left;
+      }
+      
+      .holder {
+        width: 40%;
+      }
+      
+      p:nth-child(even) {
+        color: red;
+      }
 
-  <script>
-  var item = range(8);
-  for (i = 0; i < item.length; i++) {
-    //console.log(item[i]);
-  }
-  bh.deal();
-  bh.display();
-  defaultDisplay(bh);
-  </script>
-</body>
+    </style>
+  </head>
+
+  <body>
+    <div id="game-container">
+      <div id="top" class="holder"></div>
+      <div id="right" class="holder"></div>
+      <div id="left" class="holder"></div>
+      <div id="bottom" class="holder"></div>
+    </div>
+    <button onclick="bh.deal();bh.display();defaultDisplay(bh, false);">deal</button>
+    <button onclick="defaultDisplay(bh, true);">rotate</button>
+
+    <script>
+      var item = range(8);
+      for (i = 0; i < item.length; i++) {
+        //console.log(item[i]);
+      }
+      bh.deal();
+      bh.display();
+      defaultDisplay(bh);
+
+    </script>
+  </body>
 
 </html>

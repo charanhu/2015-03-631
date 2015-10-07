@@ -1,3 +1,17 @@
+const DEFAULT_NAMES = [
+    "North", "East", "South", "West"
+  ],
+  SUITS = [
+    "hearts", "spades", "clubs", "diamonds"
+  ],
+  VALUES = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
+  NUM_PER_SUIT = 13,
+  UNICODE_CARD = {
+    "hearts": "&#x2665;",
+    "spades": "&#x2660;",
+    "clubs": "&#x2663;",
+    "diamonds": "&#x2666;"
+  };
 var BridgeHandler = (function() {
 
   function BridgeHandler() {
@@ -31,46 +45,49 @@ var BridgeHandler = (function() {
     }
 
     Player.prototype.trashHand = function(deck) {
-      Object.keys(this.hand).forEach(function (key) {
-        this.hand[key].forEach(function (number) {
-          deck.returnCard(key, number);
-          this.playCard(key, number);
+      Object.keys(this.hand)
+        .forEach(function(key) {
+          this.hand[key].forEach(function(number) {
+            deck.returnCard(key, number);
+            this.playCard(key, number);
+          }, this);
         }, this);
-      }, this);
     }
 
     Player.prototype.display = function() {
       var displayData = {
         title: this.pName,
       };
-      Object.keys(this.hand).forEach((function(key) {
-        var sorted =
-          this.hand[key]
-          .sort(function(a, b) {
-            return b - a;
+      Object.keys(this.hand)
+        .forEach((function(key) {
+            var sorted =
+              this.hand[key]
+              .sort(function(a, b) {
+                return b - a;
+              })
+              .map(function(item) {
+                var result;
+                switch (item) {
+                  case 13:
+                    result = 'A'
+                    break;
+                  case 12:
+                    result = 'K'
+                    break;
+                  case 11:
+                    result = 'Q'
+                    break;
+                  case 10:
+                    result = 'J'
+                    break;
+                  default:
+                    result = parseInt(item) + 1;
+                }
+                return result;
+              });
+            displayData[key] = sorted.join(' ');
           })
-          .map(function(item) {
-            var result;
-            switch (item) {
-              case 13:
-                result = 'A'
-                break;
-              case 12:
-                result = 'K'
-                break;
-              case 11:
-                result = 'Q'
-                break;
-              case 10:
-                result = 'J'
-                break;
-              default:
-                result = parseInt(item) + 1;
-            }
-            return result;
-          });
-        displayData[key] = sorted.join(' ');
-      }).bind(this));
+          .bind(this));
       return displayData;
     }
 
@@ -125,8 +142,9 @@ var BridgeHandler = (function() {
   }
   BridgeHandler.prototype.beginAnew = function() {
     this.players.forEach((function(player) {
-      player.trashHand(this.deck);
-    }).bind(this));
+        player.trashHand(this.deck);
+      })
+      .bind(this));
   }
   BridgeHandler.prototype.getPlayer = function(player) {
     var i;
