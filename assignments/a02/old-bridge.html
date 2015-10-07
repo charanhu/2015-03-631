@@ -3,9 +3,9 @@
 
   <head>
     <title>Bridge</title>
-    <script type="text/javascript" src="scripts/card_games.js"></script>
-    <script type="text/javascript" src="scripts/bridge.js"></script>
-    <script type="text/javascript" src="scripts/bridge_display.js"></script>
+    <script type="text/javascript" src="old-scripts/bridge.js"></script>
+    <script type="text/javascript" src="old-scripts/bridge_display.js"></script>
+    <script type="text/javascript" src="old-scripts/Util.js"></script>
     <script type="text/javascript">
       var bh = new BridgeHandler();
 
@@ -52,6 +52,10 @@
     <button onclick="defaultDisplay(bh, true);">rotate</button>
 
     <script>
+      var item = range(8);
+      for (i = 0; i < item.length; i++) {
+        //console.log(item[i]);
+      }
       bh.deal();
       bh.display();
       defaultDisplay(bh);

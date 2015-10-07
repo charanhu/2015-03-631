@@ -1,6 +1,4 @@
-const DEFAULT_NAMES = [
-    "North", "East", "South", "West"
-  ],
+const
   SUITS = [
     "hearts", "spades", "clubs", "diamonds"
   ],
@@ -102,8 +100,23 @@ var
       this.hand = new Hand();
     }
 
-    Player.prototype.playHighest = function(suit) {
+    Player.prototype.addCard = function(card) {
+      this.hand.add(card);
+    }
 
+    Player.prototype.play = function(card) {
+      return this.hand.play(card);
+    }
+
+    Player.prototype.trashHand = function() {
+      return this.hand.trash();
+    }
+
+    Player.prototype.display = function() {
+      var displayData = {
+        title: this.userName,
+        hand: this.hand.getDisplay()
+      };
     }
 
     return Player;
@@ -114,8 +127,38 @@ var
       this.cards = [];
     }
 
+    Hand.prototype.getDisplay = function() {
+      var displayData = [];
+      for (item of this.cards) {
+        displayData[item.suit].push(item.displayValue);
+      }
+      return displayData;
+    }
+
+    Hand.prototype.play = function(card) {
+      var index = this.cards.indexOf(card);
+      if (index < 0) {
+        return false;
+      }
+
+      delete this.cards[index];
+      this.cards = this.cards.filter(function(value) {
+        return value;
+      });
+
+      return true;
+    }
+
     Hand.prototype.add = function(card) {
       this.cards.push(card);
+    }
+
+    Hand.prototype.trash = function() {
+      var returnCards = this.cards.slice(0);
+
+      this.cards = [];
+
+      return returnCards;
     }
 
     return Hand;

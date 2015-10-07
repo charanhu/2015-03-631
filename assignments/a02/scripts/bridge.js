@@ -1,17 +1,6 @@
 const DEFAULT_NAMES = [
-    "North", "East", "South", "West"
-  ],
-  SUITS = [
-    "hearts", "spades", "clubs", "diamonds"
-  ],
-  VALUES = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
-  NUM_PER_SUIT = 13,
-  UNICODE_CARD = {
-    "hearts": "&#x2665;",
-    "spades": "&#x2660;",
-    "clubs": "&#x2663;",
-    "diamonds": "&#x2666;"
-  };
+  "North", "East", "South", "West"
+];
 var BridgeHandler = (function() {
 
   function BridgeHandler() {
@@ -19,39 +8,6 @@ var BridgeHandler = (function() {
     this.players = [];
     for (var i = 0; i < DEFAULT_NAMES.length; i++) {
       this.players[i] = new Player(DEFAULT_NAMES[i]);
-    }
-
-    function Player(name) {
-      this.pName = name;
-      this.hand = [];
-      for (var i = 0; i < SUITS.length; i++) {
-        this.hand[SUITS[i]] = [];
-      }
-    }
-
-    Player.prototype.addCard = function(theCard) {
-      this.hand[theCard.suit].push(theCard.number);
-    }
-
-    Player.prototype.playCard = function(suit, number) {
-      var index = this.hand[suit].indexOf(number);
-      if (index < 0) {
-        throw error;
-      }
-      delete this.hand[suit][index];
-      this.hand[suit] = this.hand[suit].filter(function(value) {
-        return value;
-      });
-    }
-
-    Player.prototype.trashHand = function(deck) {
-      Object.keys(this.hand)
-        .forEach(function(key) {
-          this.hand[key].forEach(function(number) {
-            deck.returnCard(key, number);
-            this.playCard(key, number);
-          }, this);
-        }, this);
     }
 
     Player.prototype.display = function() {
@@ -91,15 +47,6 @@ var BridgeHandler = (function() {
       return displayData;
     }
 
-    function Deck() {
-      this.cards = shuffle(range(52));
-      // this.cards = range(52);
-    }
-
-    Deck.prototype.drawCard = function() {
-      return this.cards.pop();
-    }
-
     Deck.prototype.deal = function(players) {
       var numPlayers = players.length,
         limit = this.cards.length;
@@ -132,8 +79,11 @@ var BridgeHandler = (function() {
 
   }
   BridgeHandler.prototype.deal = function() {
+    var i, card;
     this.beginAnew();
-    this.deck.deal(this.players);
+    for (i = 0; card = this.deck.draw(); i = ((i + 1) % this.players.length)) {
+      this.players[i].addCard(card);
+    }
   }
   BridgeHandler.prototype.display = function() {
     this.players.forEach(function(player) {
