@@ -1,15 +1,9 @@
 const
   SUITS = [
-    "hearts", "spades", "clubs", "diamonds"
+    "hearts", "spades", "diamonds", "clubs"
   ],
   VALUES = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
-  NUM_PER_SUIT = 13,
-  UNICODE_CARD = {
-    "hearts": "&#x2665;",
-    "spades": "&#x2660;",
-    "clubs": "&#x2663;",
-    "diamonds": "&#x2666;"
-  };
+  NUM_PER_SUIT = 13;
 var
   Deck = (function() {
     var
@@ -116,6 +110,14 @@ var
 
     Player.prototype.addCard = function(card) {
       this.hand.add(card);
+    }
+
+    Player.prototype.setHand = function(hand) {
+      if (Array.isArray(hand)) {
+        for (var card of hand) {
+          this.addCard(card);
+        }
+      }
     }
 
     Player.prototype.play = function(card) {
