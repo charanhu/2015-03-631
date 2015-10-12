@@ -4,8 +4,9 @@ function displayHand(holderDiv, playerJSON) {
 
   var toBeInner = `<h2>${playerJSON['title']}</h2>`;
   toBeInner += SUITS.map(function(suit) {
-            return `<p>${UNICODE_CARD[suit]} ${playerJSON[suit]}</p>`
-          }).join('\n');
+      return `<p>${UNICODE_CARD[suit]} ${playerJSON.hand[suit] ? playerJSON.hand[suit].join(' ') : ' '}</p>`
+    })
+    .join('\n');
 
   holderDiv.innerHTML = toBeInner;
 }

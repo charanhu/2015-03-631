@@ -74,7 +74,17 @@ var
     }
 
     Deck.prototype.return = function(card) {
-      this.cards.push(card);
+      if (Array.isArray(card)) {
+        for (var item of card) {
+          this.cards.push(item);
+        }
+      } else {
+        this.cards.push(card);
+      }
+    }
+
+    Deck.prototype.shuffle = function() {
+      shuffle(this.cards);
     }
 
     return Deck;
@@ -88,7 +98,11 @@ var
     }
 
     Card.prototype.compareTo = function(otherCard) {
-      return otherCard.intValue - this.intValue;
+      var compVal = this.suit.localeCompare(otherCard.suit);
+      if (!compVal) {
+        compVal = otherCard.intValue - this.intValue;
+      }
+      return compVal;
     };
 
     return Card;
@@ -117,6 +131,8 @@ var
         title: this.userName,
         hand: this.hand.getDisplay()
       };
+
+      return displayData;
     }
 
     return Player;
@@ -128,8 +144,16 @@ var
     }
 
     Hand.prototype.getDisplay = function() {
-      var displayData = [];
+      var displayData = {},
+        item;
+
+      this.cards = this.cards.sort(function(a, b) {
+        return a.compareTo(b);
+      });
       for (item of this.cards) {
+        if (!displayData[item.suit]) {
+          displayData[item.suit] = [];
+        }
         displayData[item.suit].push(item.displayValue);
       }
       return displayData;
