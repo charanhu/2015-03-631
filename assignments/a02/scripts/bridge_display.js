@@ -19,6 +19,12 @@ SUIT_DISPLAY = {
   }
 };
 
+/**
+ * Displays an individual player in a given div
+ *
+ * @param  HTMLElement  holderDiv  the location to display player data
+ * @param  Player       playerJSON player data to display
+ */
 function displayHand(holderDiv, playerJSON) {
 
   var toBeInner = `<h2>${playerJSON['title']}</h2>`;
@@ -38,6 +44,12 @@ function displayHand(holderDiv, playerJSON) {
   holderDiv.innerHTML = toBeInner;
 }
 
+/**
+ * Displays all of the play data stored in a game of bridge
+ *
+ * @param  BridgeHandler  bridgeHandler the game of bridge to display
+ * @param  boolean        rotate        whether or not to rotate the display
+ */
 function defaultDisplay(bridgeHandler, rotate) {
   const DEFAULT_DIVS = [
     "top",
