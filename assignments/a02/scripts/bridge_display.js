@@ -23,7 +23,15 @@ function displayHand(holderDiv, playerJSON) {
 
   var toBeInner = `<h2>${playerJSON['title']}</h2>`;
   toBeInner += SUITS.map(function(suit) {
-      return `<p style="color: ${SUIT_DISPLAY[suit].color};"> ${SUIT_DISPLAY[suit].icon} ${playerJSON.hand[suit] ? playerJSON.hand[suit].join(' ') : ' '}</p>`
+      var toReturn = `<p style="color: ${SUIT_DISPLAY[suit].color};"> ${SUIT_DISPLAY[suit].icon} `;
+      if (playerJSON.hand[suit]) {
+        for (var card of playerJSON.hand[suit]) {
+          toReturn += `<span class="card-num"> ${card}</span>`;
+        }
+      }
+      toReturn += `</p>`;
+
+      return toReturn;
     })
     .join('\n');
 

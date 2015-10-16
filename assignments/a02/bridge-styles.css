@@ -1,0 +1,6 @@
+.card-num {
+  cursor: grab;
+}
+.card-num:hover {
+  border: 1px solid black;
+}
