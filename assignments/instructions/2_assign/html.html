@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+  <head>
+    <title>Assignment: Page Design</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  </head>
+
+  <body>
+    <h1>Assignment: Bridge Hands</h1>
+    <p>Create a web page that displays randomly generated bridge deals. Bridge deals should be displayed in a format like this:</p>
+    <center>
+      <table>
+        <tr>
+          <td width=180>
+            <td width=180>N
+              <font size="-1">ORTH</font>
+              <br>
+              <img src="src/s.gif" alt="S"> A 4 3
+              <br>
+              <img src="src/h.gif" alt="H"> K Q J 10
+              <br>
+              <img src="src/d.gif" alt="D"> K 5 2
+              <br>
+              <img src="src/c.gif" alt="C"> 9 8 7</tr>
+        <tr>
+          <td>W
+            <font size="-1">EST</font>
+            <br>
+            <img src="src/s.gif" alt="S"> Q J 10
+            <br>
+            <img src="src/h.gif" alt="H"> A
+            <br>
+            <img src="src/d.gif" alt="D"> 10 8 7 6 4
+            <br>
+            <img src="src/c.gif" alt="C"> J 4 3 2 </td>
+          <td></td>
+          <td width=180>E
+            <font size="-1">AST</font>
+            <br>
+            <img src="src/s.gif" alt="S"> 9 8 7 6 2
+            <br>
+            <img src="src/h.gif" alt="H"> 9 8 7 6 2
+            <br>
+            <img src="src/d.gif" alt="D">
+            <br>
+            <img src="src/c.gif" alt="C"> 10 6 5</tr>
+        <tr>
+          <td></td>
+          <td>S
+            <font size="-1">OUTH</font>
+            <br>
+            <img src="src/s.gif" alt="S"> K 5
+            <br>
+            <img src="src/h.gif" alt="H"> 5 4 3
+            <br>
+            <img src="src/d.gif" alt="D"> A Q J 9 3
+            <br>
+            <img src="src/c.gif" alt="C"> A K Q</tr>
+      </table>
+    </center>
+    <ul>
+      <li>Note that each deal consists of four hands, labelled &quot;North&quot;, &quot;East&quot;, &quot;South&quot; and &quot;West&quot;. When a deal is displayed, North, should be at the top, East, to the right, etc.</li>
+      <li>Each time the page is loaded it should display a new deal. </li>
+      <li>The page should provide a button that deals a new hand, but should do so without forcing the browser to reload the page.</li>
+      <li>You should provide a limited version of playing the cards, one trick at a time, by allowing the user to click on cards to play the to the current trick.</li>
+      <li>Your source code should be formatted so that it is easily readable: use indentation, etc.</li>
+    </ul>
+    <h3>Notes on bridge hands:</h3>
+    <p>Bridge is played with a standard deck of 52 cards. Such a deck consists of 4 suits: spades (
+      <img src="src/s.gif" alt="S">), hearts (
+      <img src="src/h.gif" alt="H">), diamonds (
+      <img src="src/d.gif" alt="D">), and clubs (
+      <img src="src/c.gif" alt="C">). Each suit consists of 13 cards labelled 2,3,4,5,6,7,8,9,10, J, Q, K, A.) Hands are formed by dealing the entire deck out evenly among four players, usually labelled &quot;North&quot;, &quot;East&quot;, &quot;South&quot; and &quot;West&quot; in
+      the bridge literature. Thus each player ends up with 13 (uniformly) randomly selected cards, and the union of the cards in the four hands (NSEW) should form a complete deck of 52 cards. Because the cards are dealt randomly, you cannot make any assumptions
+      about the distribution of cards within any particular player's hand. A player might have 10 spades, 1 heart, 0 diamonds and 2 clubs, for example (this would be an exceedingly unlikely distribution, but it is possible,) or they might have 4 spades,
+      2 hearts, 4 diamonds and 3 clubs. Your code should be able to handle any distribution.</p>
+    <p>The suits of each hand are displayed in the order shown: spades on top, followed by hearts, diamonds and then clubs. Each suit should be ordered: A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, as shown in the example above (this is called &quot;rank ordering&quot;).
+    </p>
+    <p>Bridge is played in a sequence of 13 &quot;tricks&quot;. Each trick consists of exactly one card being played from each of the hands. There are rules concerning which hand should play the first card in a trick, and about &quot;following suit&quot;,
+      but you needn't worry about those in this implementation. For the default implementation, the user should be able to &quot;play&quot; a card from any of the four hands to start a trick by clicking on that card. The card should be deleted from its
+      hand (the remaining cards, if any, in its suit sliding to the left to occupy the space vacated by the card that was clicked upon. The played card should then appear in the center of the four hands. The user will then need to play one card from each
+      of the remaining hands in order to complete the trick. Below is an example of what your display might look like after one trick is completed.</p>
+    <center>
+      <table>
+        <tr>
+          <td width=180>
+            <td width=180>N
+              <font size="-1">ORTH</font>
+              <br>
+              <img src="src/s.gif" alt="S"> A 4 3
+              <br>
+              <img src="src/h.gif" alt="H"> K Q J 10
+              <br>
+              <img src="src/d.gif" alt="D"> 5 2
+              <br>
+              <img src="src/c.gif" alt="C"> 9 8 7</tr>
+        <tr>
+          <td>W
+            <font size="-1">EST</font>
+            <br>
+            <img src="src/s.gif" alt="S"> Q J 10
+            <br>
+            <img src="src/h.gif" alt="H"> A
+            <br>
+            <img src="src/d.gif" alt="D"> 8 7 6 4
+            <br>
+            <img src="src/c.gif" alt="C"> J 4 3 2 </td>
+          <td>
+            <table width="150">
+              <tr>
+                <td>&nbsp;</td>
+                <td>DK</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>D10</td>
+                <td>&nbsp;</td>
+                <td>C10</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>DA</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+          <td width=180>E
+            <font size="-1">AST</font>
+            <br>
+            <img src="src/s.gif" alt="S"> 9 8 7 6 2
+            <br>
+            <img src="src/h.gif" alt="H"> 9 8 7 6 2
+            <br>
+            <img src="src/d.gif" alt="D">
+            <br>
+            <img src="src/c.gif" alt="C"> 6 5</tr>
+        <tr>
+          <td></td>
+          <td>S
+            <font size="-1">OUTH</font>
+            <br>
+            <img src="src/s.gif" alt="S"> K 5
+            <br>
+            <img src="src/h.gif" alt="H"> 5 4 3
+            <br>
+            <img src="src/d.gif" alt="D"> Q J 9 3
+            <br>
+            <img src="src/c.gif" alt="C"> A K Q</tr>
+      </table>
+    </center>
+    <ul>
+      <p>Once a hand has played a card to the trick, clicking on any other cards in that hand should be ignored until the trick is complete. After four cards have been played, the trick is complete. The user starts the next trick by clicking (i.e., &quot;playing&quot;)
+        any card from any hand. When this occurs, delete the four cards from the previous trick from the center of the hands.</p>
+      <h3>Submitting Your Page:</h3>
+      <p>Submit your several files as a zip file to the dropbox. Make sure you include in your zip file all the .html files, as well as any image files (.gif and .jpg, for example) that your page references and any external style sheets or .js files. The
+        main .html file (the one I will access with my browser) should be called
+        <strong>bridge.html</strong>.
+        <font color="#0000FF">Don't forget this!</font>
+      </p>
+      <h3>Hints:</h3>
+      <p>There are a number of ways to solve this. I suggest displaying each hand in a &lt;div&gt; having position properties. Each div should have an
+        <em>id</em> for access by JS. In each &lt;div&gt; you might place four &lt;span&gt;, one for each suit. In those spans, you might place a separate span around each card, allowing for pick correlation with the cursor.</p>
+      <p>Other approaches involve using 4 text boxes (&lt;input type=&quot;text&quot;&gt;) for each hand, or using tables. </p>
+      <p>See the section in Chapter 6, Dynamic Content, in the textbook for how to redeal the hands and handle the mouse clicks.</p>
+      <h4>How to Proceed: </h4>
+      <p>Start by displaying a single hand. The
+        <em>onload</em> event can be used to set the value of the hand. The exact method will vary with the approach that you take. </p>
+      <p>Now try to get all four hands to display, but don't worry about positioning the hands in a &quot;circle&quot;.</p>
+      <p>Next, position the hands into a &quot;circle&quot; by using the
+        <em>position</em>,
+        <em>left</em>, and
+        <em>top</em> properties. </p>
+      <p>Next, add a button that &quot;redeals&quot; the hands. </p>
+      <p>Add the ability to play (click on) cards only
+        <em>after</em> you get a single deal to display properly. </p>
+      <h3>Bridge is a Great Game:</h3>
+      <p>If you are interested in bridge, there is a huge amount of on-line and written literature on the subject. A good starting place is the web site for the <a href="http://www.acbl.org/">American
+  Contract Bridge League (ACBL)</a>. There is a link from there to a number of places where you can play bridge on-line with tens of thousands of players.</p>
+      <p>&nbsp;</p>
+  </body>
+
+</html>
