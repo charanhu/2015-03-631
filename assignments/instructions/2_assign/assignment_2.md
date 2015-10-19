@@ -18,38 +18,41 @@ As the cards are dealt randomly no assumptions can be made about the distributio
 
 The suits of each hand are displayed in the order shown: spades on top, followed by hearts, diamonds, and then clubs. Each suit should be ordered: *A, K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2* as shown in the example above (this is called "rank ordering").
 
+#### Bridge games:
+
 Bridge is played in a sequence of 13 "tricks". Each trick consists of exactly one card being played from each of the hands. There are rules concerning which hand should play the first card in a trick and about "following suit" but you needn't worry about those in this implementation. For the default implementation, the user should be able to "play" a card from any of the four hands to start a trick by clicking on that card. The card should be deleted from its hand after which the remaining cards, if any, in its suit sliding to the left to occupy the space vacated by the card that was clicked upon. The played card should then appear in the center of the four hands. The user will then need to play one card from each of the remaining hands in order to complete the trick. Below is an example of what your display might look like after one trick is completed.
 
 ![moar hands][2]
 
-    Once a hand has played a card to the trick, clicking on any other cards in that hand should be ignored until the trick is complete. After four cards have been played, the trick is complete. The user starts the next trick by clicking (i.e., "playing") any card from any hand. When this occurs, delete the four cards from the previous trick from the center of the hands.
-    Submitting Your Page:
+Once a hand has played a card to the trick, clicking on any other cards in that hand should be ignored until the trick is complete. After four cards have been played, the trick is complete. The user starts the next trick by clicking (i.e., "playing") any card from any hand. When this occurs, delete the four cards from the previous trick from the center of the hands.
 
-    Submit your several files as a zip file to the dropbox. Make sure you include in your zip file all the .html files, as well as any image files (.gif and .jpg, for example) that your page references and any external style sheets or .js files. The main .html file (the one I will access with my browser) should be called bridge.html. Don't forget this!
-    Hints:
+### Submitting Your Page:
 
-    There are a number of ways to solve this. I suggest displaying each hand in a <div> having position properties. Each div should have an id for access by JS. In each <div> you might place four <span>, one for each suit. In those spans, you might place a separate span around each card, allowing for pick correlation with the cursor.
+Submit your several files as a zip file to the dropbox. Make sure you include in your zip file all the .html files, as well as any image files (.gif and .jpg, for example) that your page references and any external style sheets or .js files. The main .html file (the one I will access with my browser) should be called **bridge.html**. Don't forget this!
 
-    Other approaches involve using 4 text boxes (<input type="text">) for each hand, or using tables.
+### Hints:
 
-    See the section in Chapter 6, Dynamic Content, in the textbook for how to redeal the hands and handle the mouse clicks.
-    How to Proceed:
+There are a number of ways to solve this. I suggest displaying each hand in a `<div>` having position properties. Each div should have an id for access by JS. In each `<div>` you might place four `<span>`, one for each suit. In those spans, you might place a separate span around each card, allowing for pick correlation with the cursor.
 
-    Start by displaying a single hand. The onload event can be used to set the value of the hand. The exact method will vary with the approach that you take.
+Other approaches involve using 4 text boxes (`<input type="text">`) for each hand, or using tables.
 
-    Now try to get all four hands to display, but don't worry about positioning the hands in a "circle".
+See the section in Chapter 6, Dynamic Content, in the textbook for how to redeal the hands and handle the mouse clicks.
 
-    Next, position the hands into a "circle" by using the position, left, and top properties.
+### How to Proceed:
 
-    Next, add a button that "redeals" the hands.
+- Start by displaying a single hand. The onload event can be used to set the value of the hand. The exact method will vary with the approach that you take.
+- Now try to get all four hands to display, but don't worry about positioning the hands in a circle.
+- Next, position the hands into a circle by using the position, left, and top properties.
+- Next, add a button that "redeals" the hands.
+- Add the ability to play (click on) cards only after you get a single deal to display properly.
 
-    Add the ability to play (click on) cards only after you get a single deal to display properly.
-    Bridge is a Great Game:
+#### Bridge is a Great Game:
 
-    If you are interested in bridge, there is a huge amount of on-line and written literature on the subject. A good starting place is the web site for the American Contract Bridge League (ACBL). There is a link from there to a number of places where you can play bridge on-line with tens of thousands of players.
+If you are interested in bridge, there is a huge amount of on-line and written literature on the subject. A good starting place is the web site for the [American Contract Bridge League (ACBL)][3]. There is a link from there to a number of places where you can play bridge on-line with tens of thousands of players.
 
 [1]: src/image_01.png
 [2]: src/image_02.png
+[3]: http://www.acbl.org/
 [s]: src/s.gif
 [h]: src/h.gif
 [c]: src/c.gif
