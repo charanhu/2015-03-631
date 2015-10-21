@@ -26,13 +26,12 @@ SUIT_DISPLAY = {
  * @param  Player       playerJSON player data to display
  */
 function displayHand(holderDiv, playerJSON) {
-
   var toBeInner = `<h2>${playerJSON['title']}</h2>`;
   toBeInner += SUITS.map(function(suit) {
       var toReturn = `<p style="color: ${SUIT_DISPLAY[suit].color};"> ${SUIT_DISPLAY[suit].icon} `;
       if (playerJSON.hand[suit]) {
         for (var card of playerJSON.hand[suit]) {
-          toReturn += ` <span class="card-num">${card}</span> `;
+          toReturn += ` <span class="card-num" player="${playerJSON['title']}" suit="${suit}" value="${card}" onclick="play(this)">${card}</span> `;
         }
       }
       toReturn += `</p>`;
@@ -42,6 +41,7 @@ function displayHand(holderDiv, playerJSON) {
     .join('\n');
 
   holderDiv.innerHTML = toBeInner;
+  holderDiv.thePlayer = playerJSON;
 }
 
 /**

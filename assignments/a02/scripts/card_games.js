@@ -174,12 +174,13 @@ var
      * @return [Card]       the cards that the player used to have in their hand
      */
     Player.prototype.setHand = function(hand) {
-      return this.trashHand();
+      var toReturn = this.trashHand();
       if (Array.isArray(hand)) {
         for (var card of hand) {
           this.addCard(card);
         }
       }
+      return toReturn;
     }
 
     /**
