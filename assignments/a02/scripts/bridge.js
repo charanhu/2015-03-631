@@ -7,6 +7,7 @@ const DEFAULT_NAMES = [
  * @return BridgeHandler
  */
 var BridgeHandler = (function() {
+  var currentPlay = [];
 
   function BridgeHandler() {
     this.deck = new Deck();
@@ -75,7 +76,31 @@ var BridgeHandler = (function() {
     return this.players[i];
   }
 
+  BridgeHandler.prototype.isValidPlay = function(suit, player) {
+    return true; //all cards played are valid cards of course
+
+    if (currentPlay.length === 0) {
+      return true;
+    }
+
+    if (this.getPlayer(player)
+      .hasCard(suit)) {
+      return true;
+    }
+
+    return false;
+  }
+
   return BridgeHandler;
 })();
 
-var bridging = new BridgeHandler();
+var bridging = new BridgeHandler(),
+
+  play = function(elem) {
+    if (bridging.isValidPlay(elem.suit, elem.player)) {
+      //get the card
+      //set the card to the `in play` area
+      //if not done set the next player
+      //if everyone plays, go to next trick
+    }
+  };

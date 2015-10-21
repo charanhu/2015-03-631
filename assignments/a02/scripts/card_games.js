@@ -216,6 +216,23 @@ var
       return displayData;
     }
 
+    /**
+     * Checks if the player has any cards remaining of a requested suit
+     *
+     * @param  String   suit  a string representation of a suit to check for
+     * @return Boolean        true if the user has any of those suits remaining, false otherwise
+     */
+    Player.prototype.hasCard = function(suit) {
+      var card, toReturn = false;
+      for (card of this.hand.cards) {
+        if (card.suit == suit) {
+          toReturn = true;
+          break;
+        }
+      }
+      return toReturn;
+    }
+
     return Player;
   }()),
 
