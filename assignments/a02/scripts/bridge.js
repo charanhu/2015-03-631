@@ -54,7 +54,7 @@ var BridgeHandler = (function() {
 
   /**
    * Gets player data from a given index or player name
-   * 
+   *
    * @param  Number   player  the index of the player data to get
    * @return Object           player data requested
    */
@@ -72,7 +72,7 @@ var BridgeHandler = (function() {
     } else {
       i = player;
     }
-    return this.players[i].display();
+    return this.players[i];
   }
 
   return BridgeHandler;

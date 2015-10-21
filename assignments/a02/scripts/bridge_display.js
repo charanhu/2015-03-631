@@ -32,7 +32,7 @@ function displayHand(holderDiv, playerJSON) {
       var toReturn = `<p style="color: ${SUIT_DISPLAY[suit].color};"> ${SUIT_DISPLAY[suit].icon} `;
       if (playerJSON.hand[suit]) {
         for (var card of playerJSON.hand[suit]) {
-          toReturn += `<span class="card-num"> ${card}</span>`;
+          toReturn += ` <span class="card-num">${card}</span> `;
         }
       }
       toReturn += `</p>`;
@@ -64,6 +64,7 @@ function defaultDisplay(bridgeHandler, rotate) {
 
   for (var i = 0; i < DEFAULT_DIVS.length; i++) {
     displayHand(document.getElementById(DEFAULT_DIVS[(i + offset) % DEFAULT_DIVS.length]),
-      bridgeHandler.getPlayer(i));
+      bridgeHandler.getPlayer(i)
+      .display());
   }
 }
