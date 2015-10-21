@@ -4,3 +4,37 @@
 .card-num:hover {
   border: 1px solid black;
 }
+#game-container {
+  margin: auto;
+  width: 70%;
+}
+#top, #bottom {
+  margin: auto;
+  clear: both;
+}
+#right {
+  float: right;
+}
+#left {
+  float: left;
+}
+#center {
+  margin: auto;
+  float: both;
+}
+.holder {
+  width: 25%;
+  text-align: center;
+  border: 1px solid black;
+  padding: 1em;
+  margin: 2em;
+}
+.red {
+  color: red;
+}
+.black {
+  color: black;
+}
+.cards-row {
+  text-align: left;
+}

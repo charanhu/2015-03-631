@@ -7,31 +7,6 @@
     <script type="text/javascript" src="scripts/bridge_display.js"></script>
     <script type="text/javascript" src="scripts/card_games.js"></script>
     <script type="text/javascript" src="scripts/bridge.js"></script>
-    <style>
-      #game-container {
-        margin: auto;
-        width: 50%;
-      }
-      
-      #top,
-      #bottom {
-        margin: auto;
-        clear: both;
-      }
-      
-      #right {
-        float: right;
-      }
-      
-      #left {
-        float: left;
-      }
-      
-      .holder {
-        width: 40%;
-      }
-
-    </style>
   </head>
 
   <body>
@@ -39,6 +14,7 @@
       <div id="top" class="holder"></div>
       <div id="right" class="holder"></div>
       <div id="left" class="holder"></div>
+      <div id="center" class="holder">SOME DATA</div>
       <div id="bottom" class="holder"></div>
     </div>
     <button onclick="bridging.deal();bridging.display();">deal</button>

@@ -33,7 +33,7 @@ var Display = (function() {
   function displayHand(holderDiv, playerJSON) {
     var toBeInner = `<h2>${playerJSON['title']}</h2>`;
     toBeInner += SUITS.map(function(suit) {
-        var toReturn = `<p style="color: ${SUIT_DISPLAY[suit].color};"> ${SUIT_DISPLAY[suit].icon} `;
+        var toReturn = `<p class="cards-row ${SUIT_DISPLAY[suit].color}"> ${SUIT_DISPLAY[suit].icon} `;
         if (playerJSON.hand[suit]) {
           for (var card of playerJSON.hand[suit]) {
             toReturn += ` <span class="card-num" player="${playerJSON['title']}" suit="${suit}" value="${card}" onclick="play(this)">${card}</span> `;
