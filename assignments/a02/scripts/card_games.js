@@ -193,6 +193,10 @@ var
       return this.hand.play(card);
     }
 
+    Player.prototype.getCard = function(suit, value) {
+      return this.hand.getCard(suit, value);
+    }
+
     /**
      * Removes all user cards from hand and returns them
      *
@@ -309,6 +313,17 @@ var
       this.cards = [];
 
       return returnCards;
+    }
+
+    Hand.prototype.getCard = function(suit, value) {
+      var card, toReturn;
+      for (card of this.cards) {
+        if (card.suit = suit && card.displayValue == value) {
+          toReturn = card;
+          break;
+        }
+      }
+      return toReturn;
     }
 
     return Hand;

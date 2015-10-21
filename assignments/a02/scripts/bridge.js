@@ -37,9 +37,19 @@ var BridgeHandler = (function() {
    * for debugging only
    */
   BridgeHandler.prototype.display = function() {
-    this.players.forEach(function(player) {
-      console.log(JSON.stringify(player.display()));
-    })
+    // this.players.forEach(function(player) {
+    //   console.log(JSON.stringify(player.display()));
+    // });
+    this.displayer.display();
+  }
+
+  BridgeHandler.prototype.rotate = function() {
+    this.displayer.rotate();
+    this.display();
+  }
+
+  BridgeHandler.prototype.bindDisplayer = function(theDisplayer) {
+    this.displayer = theDisplayer;
   }
 
   /**
@@ -91,16 +101,29 @@ var BridgeHandler = (function() {
     return false;
   }
 
+  BridgeHandler.prototype.setPlay = function(card) {
+    this.currentPlay.push(card);
+  }
+
   return BridgeHandler;
 })();
 
-var bridging = new BridgeHandler(),
+var bridging = new BridgeHandler();
+bridging.bindDisplayer(new Display(bridging));
 
-  play = function(elem) {
-    if (bridging.isValidPlay(elem.suit, elem.player)) {
-      //get the card
-      //set the card to the `in play` area
-      //if not done set the next player
-      //if everyone plays, go to next trick
+var play = function(elem) {
+  var card;
+  if (bridging.isValidPlay(elem.suit, elem.player)) {
+    //get the card
+    card = bridging.getPlayer(elem.player)
+      .getCard(elem.suit, elem.value);
+
+    //set the card to the `in play` area
+    if (bridging.currentPlay.length < DEFAULT_NAMES.length) {
+
     }
-  };
+
+    //if not done set the next player
+    //if everyone plays, go to next trick
+  }
+};
