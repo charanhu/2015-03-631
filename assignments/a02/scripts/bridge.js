@@ -77,3 +77,5 @@ var BridgeHandler = (function() {
 
   return BridgeHandler;
 })();
+
+var bridging = new BridgeHandler();

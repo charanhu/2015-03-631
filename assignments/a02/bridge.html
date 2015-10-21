@@ -7,10 +7,6 @@
     <script type="text/javascript" src="scripts/card_games.js"></script>
     <script type="text/javascript" src="scripts/bridge.js"></script>
     <script type="text/javascript" src="scripts/bridge_display.js"></script>
-    <script type="text/javascript">
-      var bh = new BridgeHandler();
-
-    </script>
     <style>
       #game-container {
         margin: auto;
@@ -34,10 +30,6 @@
       .holder {
         width: 40%;
       }
-      
-      p:nth-child(even) {
-        color: red;
-      }
 
     </style>
   </head>
@@ -49,13 +41,13 @@
       <div id="left" class="holder"></div>
       <div id="bottom" class="holder"></div>
     </div>
-    <button onclick="bh.deal();bh.display();defaultDisplay(bh, false);">deal</button>
-    <button onclick="defaultDisplay(bh, true);">rotate</button>
+    <button onclick="bridging.deal();bridging.display();defaultDisplay(bridging, false);">deal</button>
+    <button onclick="defaultDisplay(bridging, true);">rotate</button>
 
     <script>
-      bh.deal();
-      bh.display();
-      defaultDisplay(bh);
+      bridging.deal();
+      bridging.display();
+      defaultDisplay(bridging);
 
     </script>
   </body>
