@@ -140,6 +140,10 @@ var
       return compVal;
     };
 
+    Card.prototype.setPlayer = function(player) {
+      this.player = player;
+    };
+
     return Card;
   }()),
 
@@ -318,7 +322,7 @@ var
     Hand.prototype.getCard = function(suit, value) {
       var card, toReturn;
       for (card of this.cards) {
-        if (card.suit = suit && card.displayValue == value) {
+        if (card.suit == suit && card.displayValue == value) {
           toReturn = card;
           break;
         }
