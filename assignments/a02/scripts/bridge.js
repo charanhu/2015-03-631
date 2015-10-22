@@ -7,7 +7,6 @@ const DEFAULT_NAMES = [
  * @return BridgeHandler
  */
 var BridgeHandler = (function() {
-  var currentPlay = [];
 
   function BridgeHandler() {
     this.deck = new Deck();
@@ -15,6 +14,7 @@ var BridgeHandler = (function() {
     for (var i = 0; i < DEFAULT_NAMES.length; i++) {
       this.players[i] = new Player(DEFAULT_NAMES[i]);
     }
+    this.currentPlay = [];
   }
 
   /**
@@ -73,7 +73,7 @@ var BridgeHandler = (function() {
     var i;
     if (typeof player != "number") {
       for (var i = 0; i < this.players.length; i++) {
-        if (this.players[i].pName == player) {
+        if (this.players[i].userName == player) {
           break;
         }
       }
@@ -101,26 +101,31 @@ var BridgeHandler = (function() {
     return false;
   }
 
-  BridgeHandler.prototype.setPlay = function(card) {
-    this.currentPlay.push(card);
+  BridgeHandler.prototype.setPlay = function(card, playername) {
+    this.currentPlay[playername] = card;
+    this.display();
   }
 
   return BridgeHandler;
 })();
 
 var bridging = new BridgeHandler();
-bridging.bindDisplayer(new Display(bridging));
+bridging.bindDisplayer(new BridgeDisplay(bridging));
 
 var play = function(elem) {
-  var card;
-  if (bridging.isValidPlay(elem.suit, elem.player)) {
+  // debugger;
+  var card, suit = elem.getAttribute('suit'),
+    player = elem.getAttribute('player'),
+    displayValue = elem.getAttribute('displayValue');
+
+  if (bridging.isValidPlay(suit, player)) {
     //get the card
-    card = bridging.getPlayer(elem.player)
-      .getCard(elem.suit, elem.value);
+    card = bridging.getPlayer(player)
+      .getCard(suit, displayValue);
 
     //set the card to the `in play` area
     if (bridging.currentPlay.length < DEFAULT_NAMES.length) {
-
+      bridging.setPlay(card, player);
     }
 
     //if not done set the next player
