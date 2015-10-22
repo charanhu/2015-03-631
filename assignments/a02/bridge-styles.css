@@ -1,26 +1,56 @@
+h2 {
+  padding: 0;
+  margin: 0;
+}
 .card-num {
+  padding: 3px;
   cursor: grab;
 }
 .card-num:hover {
   border: 1px solid black;
 }
 #game-container {
+  position: relative;
   margin: auto;
   width: 70%;
 }
-#top, #bottom {
+#top-card, #bottom-card {
+  left: calc(50% - 1em);
+}
+#bottom-card {
+  bottom: calc(1em / 2);
+}
+#right-card, #left-card {
+  top: calc(50% - 1em / 2);
+}
+#right-card {
+  right: 1em;
+}
+#top, #bottom, #top-card, #bottom-card {
   margin: auto;
   clear: both;
 }
-#right {
+#right, #right-card {
   float: right;
 }
-#left {
+#left, #left-card {
   float: left;
 }
 #center {
+  position: relative;
+  height: 200px;
   margin: auto;
+  margin-top: 2em;
+  overflow: hidden;
+  /*margin-bottom: 0;*/
   float: both;
+}
+.card-holder {
+  position: absolute;
+  font-size: 250%;
+  /*width: 25%;*/
+  /*padding: 1em;*/
+  /*margin: 2em;*/
 }
 .holder {
   width: 25%;
