@@ -1,24 +1,30 @@
-var Display = (function() {
+var BridgeDisplay = (function() {
   var offset = 0;
 
   const SUIT_DISPLAY = {
-    "hearts": {
-      "icon": "&#x2665;",
-      "color": "red"
+      "hearts": {
+        "icon": "&#x2665;",
+        "color": "red"
+      },
+      "spades": {
+        "icon": "&#x2660;",
+        "color": "black"
+      },
+      "clubs": {
+        "icon": "&#x2663;",
+        "color": "black"
+      },
+      "diamonds": {
+        "icon": "&#x2666;",
+        "color": "red"
+      }
     },
-    "spades": {
-      "icon": "&#x2660;",
-      "color": "black"
-    },
-    "clubs": {
-      "icon": "&#x2663;",
-      "color": "black"
-    },
-    "diamonds": {
-      "icon": "&#x2666;",
-      "color": "red"
-    }
-  };
+    DEFAULT_DIVS = [
+      "top",
+      "right",
+      "bottom",
+      "left"
+    ];
 
   function BridgeDisplay(handler) {
     this.handler = handler;
@@ -33,10 +39,10 @@ var Display = (function() {
   function displayHand(holderDiv, playerJSON) {
     var toBeInner = `<h2>${playerJSON['title']}</h2>`;
     toBeInner += SUITS.map(function(suit) {
-        var toReturn = `<p class="cards-row ${SUIT_DISPLAY[suit].color}"> ${SUIT_DISPLAY[suit].icon} `;
+        var toReturn = `<p class="cards-row ${SUIT_DISPLAY[suit].color}"> ${SUIT_DISPLAY[suit].icon}`;
         if (playerJSON.hand[suit]) {
           for (var card of playerJSON.hand[suit]) {
-            toReturn += ` <span class="card-num" player="${playerJSON['title']}" suit="${suit}" value="${card}" onclick="play(this)">${card}</span> `;
+            toReturn += ` <span class="card-num" player="${playerJSON['title']}" suit="${suit}" displayValue="${card}" onclick="play(this);">${card}</span> `;
           }
         }
         toReturn += `</p>`;
@@ -56,13 +62,6 @@ var Display = (function() {
    * @param  boolean        rotate        whether or not to rotate the display
    */
   function defaultDisplay(bridgeHandler) {
-    const DEFAULT_DIVS = [
-      "top",
-      "right",
-      "bottom",
-      "left"
-    ];
-
     for (var i = 0; i < DEFAULT_DIVS.length; i++) {
       displayHand(document.getElementById(DEFAULT_DIVS[(i + offset) % DEFAULT_DIVS.length]),
         bridgeHandler.getPlayer(i)
@@ -70,8 +69,17 @@ var Display = (function() {
     }
   }
 
-  function displayCurrent(bridgeHandler, holderDiv) {
+  function displayCurrent(bridgeHandler) {
 
+    for (var i = 0; i < DEFAULT_DIVS.length; i++) {
+      // bridgeHandler.currentPlay
+      var theCard = bridgeHandler.currentPlay[bridgeHandler.getPlayer(i)
+        .userName];
+      if (theCard) {
+        document.getElementById(DEFAULT_DIVS[(i + offset) % DEFAULT_DIVS.length] + '-card')
+          .innerHTML = `<span class="${SUIT_DISPLAY[theCard.suit].color}">${SUIT_DISPLAY[theCard.suit].icon} ${theCard.displayValue}</span>`;
+      }
+    }
   }
 
   BridgeDisplay.prototype.display = function() {
