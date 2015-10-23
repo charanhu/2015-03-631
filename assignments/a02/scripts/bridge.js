@@ -87,9 +87,13 @@ var BridgeHandler = (function() {
   }
 
   BridgeHandler.prototype.isValidPlay = function(suit, player) {
+    if (this.currentPlay[player]) {
+      return false;
+    }
+
     return true; //all cards played are valid cards of course
 
-    if (currentPlay.length === 0) {
+    if (this.currentPlay.length === 0) {
       return true;
     }
 
@@ -106,6 +110,11 @@ var BridgeHandler = (function() {
     this.display();
   }
 
+  BridgeHandler.prototype.finishTrick = function() {
+    this.currentPlay = [];
+    this.display();
+  }
+
   return BridgeHandler;
 })();
 
@@ -117,11 +126,6 @@ var play = function(elem) {
   var card, suit = elem.getAttribute('suit'),
     player = elem.getAttribute('player'),
     displayValue = elem.getAttribute('displayValue');
-
-  //if the player already played
-  if (bridging.currentPlay[player]) {
-    return;
-  }
 
   if (bridging.isValidPlay(suit, player)) {
     //get the card
