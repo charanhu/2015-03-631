@@ -331,4 +331,26 @@ var
     }
 
     return Hand;
+  }()),
+
+  Trick = (function() {
+    function Trick() {
+      this.played = [];
+    }
+
+    Trick.prototype.play = function(card, player) {
+      this.played[player] = card;
+    }
+
+    Trick.prototype.getWinner = function() {
+      var highestPlayer;
+      for (var key in this.played) {
+        if (this.played[key].compareTo(this.played[highestPlayer]) > 0) {
+          highestPlayer = key;
+        }
+      }
+      return highestPlayer;
+    }
+
+    return Trick;
   }());
