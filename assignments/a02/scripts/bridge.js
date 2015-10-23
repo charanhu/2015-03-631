@@ -111,6 +111,10 @@ var BridgeHandler = (function() {
   }
 
   BridgeHandler.prototype.finishTrick = function() {
+    for (var card in this.currentPlay) {
+      this.deck.return(card);
+    }
+
     this.currentPlay = [];
     this.display();
   }
