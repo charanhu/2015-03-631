@@ -74,11 +74,13 @@ var BridgeDisplay = (function() {
     for (var i = 0; i < DEFAULT_DIVS.length; i++) {
       // bridgeHandler.currentPlay
       var theCard = bridgeHandler.currentPlay[bridgeHandler.getPlayer(i)
-        .userName];
+          .userName],
+        output = '';
       if (theCard) {
-        document.getElementById(DEFAULT_DIVS[(i + offset) % DEFAULT_DIVS.length] + '-card')
-          .innerHTML = `<span class="${SUIT_DISPLAY[theCard.suit].color}">${SUIT_DISPLAY[theCard.suit].icon} ${theCard.displayValue}</span>`;
+        output = `<span class="${SUIT_DISPLAY[theCard.suit].color}">${SUIT_DISPLAY[theCard.suit].icon} ${theCard.displayValue}</span>`;
       }
+      document.getElementById(DEFAULT_DIVS[(i + offset) % DEFAULT_DIVS.length] + '-card')
+        .innerHTML = output;
     }
   }
 

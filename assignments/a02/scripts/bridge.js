@@ -142,11 +142,16 @@ var play = function(elem) {
     }
     //if not done set the next player
     //if everyone plays, go to next trick
-    else {
-      bridging.finishTrick();
-    }
   }
 
+  for (var i = 0; i < DEFAULT_NAMES.length; i++) {
+    if (!bridging.currentPlay[DEFAULT_NAMES[i]]) {
+      break;
+    }
+  }
+  if (i === DEFAULT_NAMES.length) {
+    bridging.finishTrick();
+  }
 
   bridging.display();
 };
