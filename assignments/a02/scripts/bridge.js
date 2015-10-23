@@ -131,6 +131,10 @@ var play = function(elem) {
     //set the card to the `in play` area
     if (bridging.currentPlay.length < DEFAULT_NAMES.length) {
       bridging.setPlay(card, player);
+
+      player = bridging.getPlayer(player);
+      card = player.getCard(suit, displayValue);
+      card = player.play(card);
     }
     //if not done set the next player
     //if everyone plays, go to next trick
