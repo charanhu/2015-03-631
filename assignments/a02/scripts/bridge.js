@@ -118,6 +118,11 @@ var play = function(elem) {
     player = elem.getAttribute('player'),
     displayValue = elem.getAttribute('displayValue');
 
+  //if the player already played
+  if (bridging.currentPlay[player]) {
+    return;
+  }
+
   if (bridging.isValidPlay(suit, player)) {
     //get the card
     card = bridging.getPlayer(player)
@@ -127,8 +132,13 @@ var play = function(elem) {
     if (bridging.currentPlay.length < DEFAULT_NAMES.length) {
       bridging.setPlay(card, player);
     }
-
     //if not done set the next player
     //if everyone plays, go to next trick
+    else {
+      bridging.finishTrick();
+    }
   }
+
+
+  bridging.display();
 };
