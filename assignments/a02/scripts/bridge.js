@@ -37,17 +37,25 @@ var BridgeHandler = (function() {
    * for debugging only
    */
   BridgeHandler.prototype.display = function() {
-    // this.players.forEach(function(player) {
-    //   console.log(JSON.stringify(player.display()));
-    // });
-    this.displayer.display();
-  }
-
+      // this.players.forEach(function(player) {
+      //   console.log(JSON.stringify(player.display()));
+      // });
+      this.displayer.display();
+    }
+    /**
+     * Rotates everybody's seat
+     *
+     */
   BridgeHandler.prototype.rotate = function() {
     this.displayer.rotate();
     this.display();
   }
 
+  /**
+   * Binds a displaying object to a BridgeHandler
+   *
+   * @param  BridgeDisplay  theDisplayer   a displayer to handle displaying magic
+   */
   BridgeHandler.prototype.bindDisplayer = function(theDisplayer) {
     this.displayer = theDisplayer;
   }
@@ -86,6 +94,13 @@ var BridgeHandler = (function() {
     return this.players[i];
   }
 
+  /**
+   * checks if a supposed move is valid
+   *
+   * @param  String   suit    a string representation of a suit to check validity
+   * @param  String   player  the name of the player that attempts to play a suit
+   * @return Boolean          true if the suit can be played
+   */
   BridgeHandler.prototype.isValidPlay = function(suit, player) {
     if (this.currentPlay[player]) {
       return false;
@@ -105,11 +120,21 @@ var BridgeHandler = (function() {
     return false;
   }
 
+  /**
+   * sets a card for play in the current trick
+   *
+   * @param  Card     card       a card to play
+   * @param  String   playername the player that is playing said card
+   */
   BridgeHandler.prototype.setPlay = function(card, playername) {
     this.currentPlay[playername] = card;
     this.display();
   }
 
+  /**
+   * resets the current trick, returns all used cards to the deck
+   *
+   */
   BridgeHandler.prototype.finishTrick = function() {
     for (var card in this.currentPlay) {
       this.deck.return(card);
@@ -126,7 +151,6 @@ var bridging = new BridgeHandler();
 bridging.bindDisplayer(new BridgeDisplay(bridging));
 
 var play = function(elem) {
-  // debugger;
   var card, suit = elem.getAttribute('suit'),
     player = elem.getAttribute('player'),
     displayValue = elem.getAttribute('displayValue');

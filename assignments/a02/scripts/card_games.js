@@ -140,6 +140,11 @@ var
       return compVal;
     };
 
+    /**
+     * Sets the owner for a Card
+     *
+     * @param  Player   player a player to assign
+     */
     Card.prototype.setPlayer = function(player) {
       this.player = player;
     };
@@ -319,6 +324,13 @@ var
       return returnCards;
     }
 
+    /**
+     * Gets a held card given by a suit or value
+     *
+     * @param  String   suit  a string representation of a suit
+     * @param  String   value the displayValue of a card
+     * @return Card           the Card asked for
+     */
     Hand.prototype.getCard = function(suit, value) {
       var card, toReturn;
       for (card of this.cards) {
@@ -333,15 +345,34 @@ var
     return Hand;
   }()),
 
+  /**
+   * A trick object to store information about an ongoing/completed trick in trick taking games
+   *
+   */
   Trick = (function() {
+    /**
+     * The Trick constructor
+     *
+     */
     function Trick() {
       this.played = [];
     }
 
+    /**
+     * play a card into a trick
+     *
+     * @param  Card     card   a card played by the current player
+     * @param  Player   player the player that played the given card
+     */
     Trick.prototype.play = function(card, player) {
       this.played[player] = card;
     }
 
+    /**
+     * Gets the winner for a given trick
+     *
+     * @return Player           the player object represeting the winner of the trick
+     */
     Trick.prototype.getWinner = function() {
       var highestPlayer;
       for (var key in this.played) {

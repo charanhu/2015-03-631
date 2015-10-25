@@ -26,6 +26,11 @@ var BridgeDisplay = (function() {
       "left"
     ];
 
+  /**
+   * BridgeDisplay constructor
+   *
+   * @param BridgeHandler   handler   the bridgeHandler to attach
+   */
   function BridgeDisplay(handler) {
     this.handler = handler;
   }
@@ -69,6 +74,11 @@ var BridgeDisplay = (function() {
     }
   }
 
+  /**
+   * The display function to show the current trick in play
+   *
+   * @param  BridgeHandler  bridgeHandler   the bridgeHandler represeting the game to display
+   */
   function displayCurrent(bridgeHandler) {
 
     for (var i = 0; i < DEFAULT_DIVS.length; i++) {
@@ -84,11 +94,19 @@ var BridgeDisplay = (function() {
     }
   }
 
+  /**
+   * displays the current set up of the hand and the current trick in play
+   *
+   */
   BridgeDisplay.prototype.display = function() {
     defaultDisplay(this.handler);
     displayCurrent(this.handler);
   }
 
+  /**
+   * rotates the players sitting locations
+   * 
+   */
   BridgeDisplay.prototype.rotate = function() {
     offset++;
   }
