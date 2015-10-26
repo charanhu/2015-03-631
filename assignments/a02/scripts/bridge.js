@@ -147,8 +147,11 @@ var BridgeHandler = (function() {
   return BridgeHandler;
 })();
 
-var bridging = new BridgeHandler();
+var bridging = new BridgeHandler(),
+  n = new NotificationHandler();
 bridging.bindDisplayer(new BridgeDisplay(bridging));
+bridging.deal();
+bridging.display();
 
 var play = function(elem) {
     var card, suit = elem.getAttribute('suit'),
@@ -172,6 +175,8 @@ var play = function(elem) {
       }
       //if not done set the next player
       //if everyone plays, go to next trick
+    } else {
+      n.notify('Not a valid move', 'failure');
     }
 
 
