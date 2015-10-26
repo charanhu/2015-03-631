@@ -151,35 +151,41 @@ var bridging = new BridgeHandler();
 bridging.bindDisplayer(new BridgeDisplay(bridging));
 
 var play = function(elem) {
-  var card, suit = elem.getAttribute('suit'),
-    player = elem.getAttribute('player'),
-    displayValue = elem.getAttribute('displayValue');
+    var card, suit = elem.getAttribute('suit'),
+      player = elem.getAttribute('player'),
+      displayValue = elem.getAttribute('displayValue');
 
-  if (bridging.isValidPlay(suit, player)) {
-    //get the card
-    card = bridging.getPlayer(player)
-      .getCard(suit, displayValue);
+    clear();
 
-    //set the card to the `in play` area
-    if (bridging.currentPlay.length < DEFAULT_NAMES.length) {
-      bridging.setPlay(card, player);
+    if (bridging.isValidPlay(suit, player)) {
+      //get the card
+      card = bridging.getPlayer(player)
+        .getCard(suit, displayValue);
 
-      player = bridging.getPlayer(player);
-      card = player.getCard(suit, displayValue);
-      card = player.play(card);
+      //set the card to the `in play` area
+      if (bridging.currentPlay.length < DEFAULT_NAMES.length) {
+        bridging.setPlay(card, player);
+
+        player = bridging.getPlayer(player);
+        card = player.getCard(suit, displayValue);
+        card = player.play(card);
+      }
+      //if not done set the next player
+      //if everyone plays, go to next trick
     }
-    //if not done set the next player
-    //if everyone plays, go to next trick
-  }
 
-  for (var i = 0; i < DEFAULT_NAMES.length; i++) {
-    if (!bridging.currentPlay[DEFAULT_NAMES[i]]) {
-      break;
+
+
+    bridging.display();
+  },
+  clear = function() {
+    for (var i = 0; i < DEFAULT_NAMES.length; i++) {
+      if (!bridging.currentPlay[DEFAULT_NAMES[i]]) {
+        break;
+      }
     }
-  }
-  if (i === DEFAULT_NAMES.length) {
-    bridging.finishTrick();
-  }
 
-  bridging.display();
-};
+    if (i === DEFAULT_NAMES.length) {
+      bridging.finishTrick();
+    }
+  };
