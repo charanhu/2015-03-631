@@ -165,6 +165,7 @@ var
     function Player(userName) {
       this.userName = userName;
       this.hand = new Hand();
+      this.won = [];
     }
 
     /**
@@ -354,8 +355,10 @@ var
      * The Trick constructor
      *
      */
-    function Trick() {
+    function Trick(card, player) {
       this.played = [];
+      this.firstCard = card;
+      this.play(card, player);
     }
 
     /**
@@ -381,6 +384,14 @@ var
         }
       }
       return highestPlayer;
+    }
+
+    Trick.prototype.didPlay = function(player) {
+      return this.played[player];
+    };
+
+    Trick.prototype.isEmpty = function() {
+      return this.played.length === 0;
     }
 
     return Trick;

@@ -24,7 +24,7 @@ h2 {
   top: calc(50% - 1em / 2);
 }
 #right-card {
-  right: 1em;
+  right: calc(1em / 2);
 }
 #top, #bottom, #top-card, #bottom-card {
   margin: auto;

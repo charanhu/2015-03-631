@@ -14,7 +14,7 @@ var BridgeHandler = (function() {
     for (var i = 0; i < DEFAULT_NAMES.length; i++) {
       this.players[i] = new Player(DEFAULT_NAMES[i]);
     }
-    this.currentPlay = [];
+    this.currentPlay = new Trick();
   }
 
   /**
@@ -102,13 +102,13 @@ var BridgeHandler = (function() {
    * @return Boolean          true if the suit can be played
    */
   BridgeHandler.prototype.isValidPlay = function(suit, player) {
-    if (this.currentPlay[player]) {
+    if (this.currentPlay.didPlay(player)) {
       return false;
     }
 
     return true; //all cards played are valid cards of course
 
-    if (this.currentPlay.length === 0) {
+    if (this.currentPlay.isEmpty()) {
       return true;
     }
 
@@ -127,7 +127,7 @@ var BridgeHandler = (function() {
    * @param  String   playername the player that is playing said card
    */
   BridgeHandler.prototype.setPlay = function(card, playername) {
-    this.currentPlay[playername] = card;
+    this.currentPlay.play(card, playername);
     this.display();
   }
 
@@ -136,11 +136,13 @@ var BridgeHandler = (function() {
    *
    */
   BridgeHandler.prototype.finishTrick = function() {
-    for (var card in this.currentPlay) {
-      this.deck.return(card);
-    }
+    // for (var card in this.currentPlay.play) {
+    //   this.deck.return(card);
+    // }
+    // this.getPlayer(this.currentPlay.getWinner())
+    //   .won.push(currentPlay);
 
-    this.currentPlay = [];
+    this.currentPlay = new Trick();
     this.display();
   }
 
@@ -166,13 +168,13 @@ var play = function(elem) {
         .getCard(suit, displayValue);
 
       //set the card to the `in play` area
-      if (bridging.currentPlay.length < DEFAULT_NAMES.length) {
-        bridging.setPlay(card, player);
+      // if (bridging.currentPlay.length < DEFAULT_NAMES.length) {
+      bridging.setPlay(card, player);
 
-        player = bridging.getPlayer(player);
-        card = player.getCard(suit, displayValue);
-        card = player.play(card);
-      }
+      player = bridging.getPlayer(player);
+      card = player.getCard(suit, displayValue);
+      card = player.play(card);
+      // }
       //if not done set the next player
       //if everyone plays, go to next trick
     } else {
@@ -185,7 +187,7 @@ var play = function(elem) {
   },
   clear = function() {
     for (var i = 0; i < DEFAULT_NAMES.length; i++) {
-      if (!bridging.currentPlay[DEFAULT_NAMES[i]]) {
+      if (!bridging.currentPlay.didPlay(DEFAULT_NAMES[i])) {
         break;
       }
     }

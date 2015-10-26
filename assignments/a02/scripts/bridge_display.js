@@ -83,8 +83,8 @@ var BridgeDisplay = (function() {
 
     for (var i = 0; i < DEFAULT_DIVS.length; i++) {
       // bridgeHandler.currentPlay
-      var theCard = bridgeHandler.currentPlay[bridgeHandler.getPlayer(i)
-          .userName],
+      var theCard = bridgeHandler.currentPlay.didPlay(bridgeHandler.getPlayer(i)
+          .userName),
         output = '';
       if (theCard) {
         output = `<span class="${SUIT_DISPLAY[theCard.suit].color}">${SUIT_DISPLAY[theCard.suit].icon} ${theCard.displayValue}</span>`;
@@ -105,7 +105,7 @@ var BridgeDisplay = (function() {
 
   /**
    * rotates the players sitting locations
-   * 
+   *
    */
   BridgeDisplay.prototype.rotate = function() {
     offset++;
